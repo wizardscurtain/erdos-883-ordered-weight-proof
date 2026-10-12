@@ -1,0 +1,12 @@
+{
+  "status": "PASS_WITH_THREE_EXPECTED_SUFFICIENT_CRITERION_FAILURES",
+  "range": [4000, 30000],
+  "rows": 26001,
+  "successful_certificates": 25998,
+  "expected_exceptions": [4025, 4029, 4035],
+  "exception_disposition": "Use the separately archived E/R/M proofs; these are not counterexamples.",
+  "minimum_successful_integer_slack": 116,
+  "total_exact_fallback_rows": 3598,
+  "output_sha256": "78589bde77d8dd2c3447556ba97a4c67365f81a1799c792942ff03dc23f8dc84",
+  "scope": "Fresh integer-only per-n G/GA verification; no fresh E/R/M, SAT, full blocks or analytic-tail replay."
+}
