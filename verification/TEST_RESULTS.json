@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "bounded new tests, not a full historical evidence replay",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "counts": {
+    "kappa_minimality_rows": 150000,
+    "threshold_comparisons_against_exact_oracle": 500000,
+    "wide_product_limb_checks": 10000,
+    "inclusive_equality_cases": 58471,
+    "marked_gap_configurations": 20200,
+    "reserve_deletion_configurations": 4108,
+    "worked_example_cycles": 1
+  },
+  "point_results": [
+    {"n": 4000, "y1": 1875, "NGA": 1093, "m": 666, "criterion_ok": true, "exact_fallbacks": 0, "arithmetic": "integer-only"},
+    {"n": 4025, "y1": 732, "NGA": 1099, "m": 670, "criterion_ok": false, "exact_fallbacks": 0, "arithmetic": "integer-only"},
+    {"n": 4029, "y1": 733, "NGA": 1100, "m": 671, "criterion_ok": false, "exact_fallbacks": 0, "arithmetic": "integer-only"},
+    {"n": 4035, "y1": 734, "NGA": 1101, "m": 672, "criterion_ok": false, "exact_fallbacks": 0, "arithmetic": "integer-only"},
+    {"n": 4100, "y1": 1923, "NGA": 1118, "m": 683, "criterion_ok": true, "exact_fallbacks": 0, "arithmetic": "integer-only"},
+    {"n": 10000, "y1": 4801, "NGA": 2529, "m": 1666, "criterion_ok": true, "exact_fallbacks": 5, "arithmetic": "integer-only"},
+    {"n": 30000, "y1": 14655, "NGA": 7535, "m": 5000, "criterion_ok": true, "exact_fallbacks": 0, "arithmetic": "integer-only"}
+  ],
+  "seconds": 1.0825818689999664
+}
