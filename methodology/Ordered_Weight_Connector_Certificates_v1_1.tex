@@ -1,0 +1,184 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,tabularx,array}
+\usepackage{microtype,enumitem,needspace,xurl}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdfauthor={Cecil Jentges}}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{1.2em}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[1]
+\setlist{nosep,leftmargin=1.4em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\wt}{\widetilde\rho}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\dochead}[3]{\begin{center}{\LARGE\bfseries #1\par}\vspace{10pt}{\large Cecil Jentges\par}\vspace{3pt}{\small Independent researcher\par}\vspace{6pt}{\small #2\par}\vspace{3pt}{\small #3\par}\end{center}}
+
+\hypersetup{pdftitle={Ordered-weight connector certificates in finite graphs}}
+\begin{document}
+\dochead{Ordered-weight connector certificates\\[3pt]in finite graphs}{A self-contained mathematical methods note}{12 October 2026 (UTC), version 1.1}
+\begin{abstract}
+We give a sufficient certificate for constructing an odd cycle from a prescribed closing edge and an ordered list of skeleton vertices. A highest-weight selection rule bounds retained low-weight vertices by a discarded-tail count. Ordering the interior skeleton then bounds the number of gaps incident to those vertices. Common-neighbor thresholds convert this bound into a greedy distinct-representative criterion. We prove the certificate, an exact run-count identity, a connector-deletion consequence, and a lower bound for labelled completions. An adjusted totient profile illustrates how a pairwise counting error can be absorbed into vertex weights in coprime graphs. All graph-theoretic statements proved here are self-contained. The note does not establish the full all-parameter arithmetic application and does not depend on its computational archive.
+\end{abstract}
+\noindent\textbf{Keywords.} Odd cycles; common neighbors; systems of distinct representatives; weighted selection; proof certificates.
+
+\section{A construction rather than a search claim}
+Let $F$ be a finite simple graph. Choose distinct vertices $o_0,\ldots,o_\ell$, with $\ell\ge1$, such that $o_0o_\ell$ is an edge. We call these vertices the \emph{skeleton}. For every consecutive pair choose a list of admissible connectors
+\[
+ L_i\subseteq\bigl(N_F(o_{i-1})\cap N_F(o_i)\bigr)\setminus S,
+ \qquad S=\{o_0,\ldots,o_\ell\},\quad 1\le i\le\ell.
+\]
+Distinct representatives $u_i\in L_i$ give the simple cycle
+\[
+ o_0,u_1,o_1,u_2,\ldots,u_\ell,o_\ell,o_0.
+\]
+The exclusion of $S$ and the distinctness of the representatives are essential. The final repeated $o_0$ denotes closure, not another vertex.
+
+Hall's theorem characterizes distinct representatives through unions of subfamilies~\cite{Hall}. Here we deliberately use a stronger, easier-to-check size condition.
+\begin{lemma}[Rank-size criterion]\label{lem:rank}
+If
+\[
+ \#\{i:|L_i|\le j-1\}\le j-1\quad(1\le j\le\ell),
+\]
+then the lists have distinct representatives.
+\end{lemma}
+\begin{proof}
+Sort the lists by nondecreasing size, with ordered sizes $d_1,\ldots,d_\ell$. The condition implies $d_j\ge j$. At step $j$, at most $j-1$ members of the current list have already been used, so greedy selection succeeds.
+\end{proof}
+This condition is sufficient, not necessary. For example, two disjoint singleton lists have distinct representatives but fail the rank-size condition at $j=2$. No equivalence with the full Hall condition is asserted.
+
+\section{Selection and ordering}
+Let $Y_0\subseteq Y\subseteq\Omega\subseteq V(F)$, let $w:\Omega\to\mathbb R$, and assume
+\[
+ |Y\setminus Y_0|=\beta,\qquad
+ w(y)\le w(y_0)\quad(y\in Y\setminus Y_0,\ y_0\in Y_0).
+\]
+Thus $Y_0$ retains highest-weight elements, allowing arbitrary ties. Define
+\[
+ N(t)=\#\{v\in\Omega:w(v)\le t\},\qquad H(c)=c+\ind_{\{c>0\}}\ (c\in\NN).
+\]
+\begin{lemma}[Discarded-tail estimate]\label{lem:tail}
+The number of vertices of $Y_0$ with weight strictly below $t$ is at most $(N(t)-\beta)_+$.
+\end{lemma}
+\begin{proof}
+If no retained vertex is below $t$, the claim is immediate. Otherwise every discarded vertex is also below $t$. Count the disjoint union of all $\beta$ discarded vertices and the retained vertices below $t$ inside the ambient set counted by $N(t)$.
+\end{proof}
+The weak inequality in $N(t)$ is intentional: it preserves a conservative bound at ties.
+
+\begin{lemma}[Ordered-gap estimate]\label{lem:gaps}
+Suppose the interior skeleton weights satisfy
+$w(o_1)\ge\cdots\ge w(o_{\ell-1})$, with no ordering restriction on $o_0,o_\ell$. Mark a gap if either endpoint has weight below $t$. If $c$ skeleton vertices are below $t$, at most $H(c)$ gaps are marked.
+\end{lemma}
+\begin{proof}
+For each marked gap except the last, charge it to its right endpoint when that endpoint is below $t$. Otherwise charge it to its left endpoint. The latter case occurs only at the initial gap, because a low interior vertex cannot precede a high interior vertex. The charges are injective into the low vertices. The last gap contributes at most one. If $c=0$, no gap is marked. When $\ell=1$, the final gap is the only gap, so the conclusion still holds.
+\end{proof}
+
+\begin{proposition}[Exact run identity]\label{prop:runs}
+For any low/high pattern on a path, let $c$ be its number of low vertices, let $r$ be its number of nonempty low runs, and let $\epsilon_0,\epsilon_\ell$ indicate low endpoints. The number of marked gaps is
+\[
+ c+r-\epsilon_0-\epsilon_\ell.
+\]
+When there are no low vertices, all four quantities are zero.
+\end{proposition}
+\begin{proof}
+The total path degree of the low vertices is $2c-\epsilon_0-\epsilon_\ell$. Their $c-r$ internal edges have each been counted twice; subtracting one copy counts each marked edge once.
+\end{proof}
+The ordered-gap estimate controls the possible runs while leaving the closing endpoints free. Its $c+1$ bound can be attained: for $\ell=3$, the pattern high, high, low, high has $c=1$ and two marked gaps. The crude independent endpoint count would instead allow up to $2c$.
+
+\section{The weighted connector certificate}
+\begin{theorem}\label{thm:main}
+In the setting above, suppose $Y_0$ has at least $\ell+1$ elements and contains adjacent distinct vertices $a,a'$. Choose $\ell-1$ other elements of $Y_0$, order them by nonincreasing weight, and use $a,a'$ as endpoints. For each gap choose $L_i$ as in Section~1. Suppose for each $1\le j\le\ell$ there is a threshold $t_j$ such that
+\[
+ \min(w(o_{i-1}),w(o_i))\ge t_j\quad\Longrightarrow\quad |L_i|\ge j
+ \qquad(1\le i\le\ell).
+\]
+Put $B_j=(N(t_j)-\beta)_+$. If $H(B_j)\le j-1$ for every $j$, then $F$ contains a simple cycle of length $2\ell+1$.
+\end{theorem}
+\begin{proof}
+A list with at most $j-1$ elements has an endpoint of weight below $t_j$. Lemma~\ref{lem:tail} bounds the number of low skeleton vertices by $B_j$. Lemma~\ref{lem:gaps} and monotonicity of $H$ bound the number of deficient lists by $H(B_j)\le j-1$. Apply Lemma~\ref{lem:rank} and alternate the skeleton with its distinct representatives. The edge $aa'$ closes the cycle.
+\end{proof}
+No monotonicity of the thresholds $t_j$ is needed. The first-rank condition requires zero deficient lists and cannot be replaced by an average-size assertion. The theorem neither guarantees an adjacent endpoint pair nor derives the common-neighbor thresholds; these remain hypotheses of an application.
+
+\section{Deletion and counting consequences}
+\begin{corollary}[Reserve against connector deletion]\label{cor:reserve}
+In Theorem~\ref{thm:main}, fix an integer $s\ge0$. Replace the threshold implication by
+\[
+ \min(w(o_{i-1}),w(o_i))\ge t_j\quad\Longrightarrow\quad |L_i|\ge j+s,
+\]
+while retaining $H(B_j)\le j-1$. Then the fixed skeleton can be completed after deleting any set $D\subseteq V(F)\setminus S$ of at most $s$ vertices.
+\end{corollary}
+\begin{proof}
+At most $j-1$ original lists have size at most $j+s-1$, by the same marked-gap argument. Their ordered sizes therefore satisfy $d_j\ge j+s$. In that original order, deleting $D$ leaves at least $j$ members in list $j$, enough for greedy distinct choices.
+\end{proof}
+\begin{corollary}[Labelled completion count]
+If fixed lists have ordered sizes $d_j\ge j$, they admit at least
+\[
+ \prod_{j=1}^{\ell}(d_j-j+1)
+\]
+assignments of distinct representatives to their labelled gaps. Under the reserve hypotheses, the lower bound is at least $(s+1)^\ell$.
+\end{corollary}
+\begin{proof}
+Each partial greedy assignment has at least $d_j-j+1$ extensions at step $j$. Multiplication gives the bound. Keep the sorted order of the labelled lists fixed throughout.
+\end{proof}
+These statements do not enumerate unlabelled cycles without overcounting, and they do not supply a uniform reserve for every dense coprime graph.
+
+\section{An arithmetic illustration}
+For a positive odd integer $v$, write
+\[
+ \rho(v)=\phi(v)/v=\prod_{p\mid v}(1-1/p),\qquad
+ w_x(v)=\rho(v)-2^{\omega(v)}/\sqrt{2x},
+\]
+where $\omega(v)$ counts distinct prime factors, with $\rho(1)=1$ and $\omega(1)=0$.
+\begin{lemma}[Finite counting error]
+For a nonempty finite prime set $P$ and real $x\ge0$, the number $c_P(x)$ of positive integers at most $x$ divisible by no prime in $P$ satisfies
+\[
+ \left|c_P(x)-x\prod_{p\in P}(1-1/p)\right|<2^{|P|-1}.
+\]
+\end{lemma}
+\begin{proof}
+For the empty prime set the error is $\floor{x}-x\in(-1,0]$. Adjoining $p\notin P$ gives $c_{P\cup\{p\}}(x)=c_P(x)-c_P(x/p)$, and the same subtraction of errors. One prime gives an error strictly between $-1$ and $1$; each additional prime doubles the symmetric bound.
+\end{proof}
+\begin{proposition}[Adjusted-product illustration]
+For distinct positive odd integers $u,v$ and a positive integer $x$, if $w_x(u),w_x(v)\ge0$, then
+\[
+ \#\{1\le k\le x:\gcd(k,uv)=1\}>xw_x(u)w_x(v).
+\]
+\end{proposition}
+\begin{proof}
+The prime support of $uv$ is nonempty. The counting lemma, $\rho(uv)\ge\rho(u)\rho(v)$, and $\omega(uv)\le\omega(u)+\omega(v)$ bound the count strictly below its main term by at most $2^{\omega(u)+\omega(v)-1}$. Put $e=2^{\omega(u)}/\sqrt{2x}$ and $e'=2^{\omega(v)}/\sqrt{2x}$. Then
+\[
+ \rho(u)\rho(v)-ee'-(\rho(u)-e)(\rho(v)-e')
+ =e'(\rho(u)-e)+e(\rho(v)-e')\ge0,
+\]
+which proves the assertion.
+\end{proof}
+The proposition counts integers, before exclusion of unavailable vertices and the skeleton. Those exclusions must be accounted for when making actual connector lists. Nonnegativity of the two weights is not optional.
+
+For a concrete instance, take $A=\{1,\ldots,13\}\subseteq[18]$ and skeleton $(1,13,11,7)$. Its interior is ordered by $w_9$. Each gap admits all six even connectors $2,4,6,8,10,12$. There are at least $6\cdot5\cdot4=120$ labelled assignments. One is
+\[
+ 1,2,13,4,11,6,7,1.
+\]
+Deleting any three of those six connectors leaves three distinct choices. This is an illustration, not an all-sets resilience theorem.
+
+\section{Relation to the accompanying application}
+The accompanying paper~\cite{Jentges} specializes this mechanism to the coprime graph of a set above the sharp density threshold in Erd\H{o}s Problem~883(i). It uses different connector pools, arithmetic distribution bounds, finite certificates and an analytic tail. Its all-$n$ conclusion depends on evidence not needed for the general results of this note. Nothing here replaces those obligations or asserts a complete public certificate release.
+
+This note reorganizes the same project's mathematical method. It is not a second independent resolution of Erd\H{o}s~883, and the elementary ingredients and corollaries are not asserted to be globally novel. The number-theoretic antecedents include Erd\H{o}s and S\'ark\"ozy~\cite{ES97}; the main paper discusses Della Pietra's and Pan's related approaches. Possible further applications must supply their own verified endpoint selection and common-neighbor inequalities.
+
+\medskip
+\noindent\textbf{Authorship and assistance.} I selected and directed this project. AI systems substantially assisted reasoning, checking, programming and exposition. No independent external human referee endorsement, organizer acceptance or historical first-priority finding is asserted. The private research-process account is separate from this mathematical note.
+
+\begin{thebibliography}{9}
+\bibitem{Hall} P. Hall, \emph{On Representatives of Subsets}, Journal of the London Mathematical Society \textbf{s1-10}(1) (1935), 26--30. \href{https://doi.org/10.1112/jlms/s1-10.37.26}{doi:10.1112/jlms/s1-10.37.26}.
+\bibitem{ES97} P. Erd\H{o}s and G. N. S\'ark\"ozy, \emph{On cycles in the coprime graph of integers}, Electronic Journal of Combinatorics \textbf{4}(2) (1997), R8. \href{https://doi.org/10.37236/1323}{doi:10.37236/1323}.
+\bibitem{Jentges} C. Jentges, \emph{Ordered-weight certificates for odd cycles in dense coprime graphs}, version 1.1, 12 October 2026. \url{https://github.com/wizardscurtain/erdos-883-ordered-weight-proof}. Sections 2--4 contain the companion construction; consult the repository for the public-evidence status.
+\end{thebibliography}
+\end{document}

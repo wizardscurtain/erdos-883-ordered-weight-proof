@@ -53,6 +53,18 @@ This repository contains the mathematical contribution and its public verificati
 
 [`evidence/PUBLIC_REVISION.md`](evidence/PUBLIC_REVISION.md) records the deliberate exclusion of experimental metadata, replacement of superseded draft exposition, unchanged certificate bytes, and revised public verification boundary. No claim is made that the original historical manifest passes over this reduced inventory.
 
+## Companion papers from the same project
+
+These additional documents explain the construction and its evidence without claiming a second independent solution. They retain their supplied versions, author attribution, and AI-assistance disclosures.
+
+- **Methods note, version 1.1:** [Ordered-weight connector certificates in finite graphs](methodology/Ordered_Weight_Connector_Certificates_v1_1.pdf), with its [self-contained LaTeX source](methodology/Ordered_Weight_Connector_Certificates_v1_1.tex).
+- **Evidence guide, version 1.0:** [Computational evidence and reproducibility for Erdős 883(i)](paper/Computational_Evidence_and_Reproducibility_v1_0.pdf), with its [LaTeX source](paper/Computational_Evidence_and_Reproducibility_v1_0.tex).
+- **Short exposition, version 1.0:** [An ordered-weight construction of odd cycles in dense coprime graphs](paper/Ordered_Weight_Construction_Proof_Guide_v1_0.pdf), with its [LaTeX source](paper/Ordered_Weight_Construction_Proof_Guide_v1_0.tex).
+
+The evidence guide and short exposition describe the earlier checkpoint `27fcb6e64e9f701ee84a43523e825cc84c93c6a2` as a dated inventory, not the current release state. The complete reviewed public derivative was subsequently published at `b5738d8944340f0ac9434f70f689316b18497026`; its [revision record](evidence/PUBLIC_REVISION.md), [manifest](evidence/PUBLIC_MANIFEST.json), and [validation scope](provenance/PUBLIC_PACKAGE_VALIDATION_20261012.json) govern the evidence actually supplied. None of these companion documents substitutes for the certificate archive.
+
 ## Prize submission
 
 This is the external evidence repository. A mathematics-only submission belongs in a fork of [`TheJustinSunPrize/awards`](https://github.com/TheJustinSunPrize/awards), with a narrowly scoped catalog change and links to the completed public evidence. See the official [contribution instructions](https://github.com/TheJustinSunPrize/awards/blob/main/CONTRIBUTING.md) and [PR template](https://github.com/TheJustinSunPrize/awards/blob/main/.github/PULL_REQUEST_TEMPLATE.md). The mathematical and Lean contributions are separate; this repository does not register a completed Lean proof.
+
+The mathematics-only submission is already filed as [awards PR #5021](https://github.com/TheJustinSunPrize/awards/pull/5021). It is pending organizer review; the companion documents are not a duplicate prize submission or an acceptance claim.

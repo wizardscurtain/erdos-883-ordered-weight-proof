@@ -1,0 +1,98 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,tabularx,array}
+\usepackage{microtype,enumitem,needspace,xurl}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdfauthor={Cecil Jentges}}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{1.2em}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[1]
+\setlist{nosep,leftmargin=1.4em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\wt}{\widetilde\rho}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\dochead}[3]{\begin{center}{\LARGE\bfseries #1\par}\vspace{10pt}{\large Cecil Jentges\par}\vspace{3pt}{\small Independent researcher\par}\vspace{6pt}{\small #2\par}\vspace{3pt}{\small #3\par}\end{center}}
+
+\hypersetup{pdftitle={An ordered-weight construction for Erdos 883(i): a proof guide}}
+\begin{document}
+\dochead{An ordered-weight construction\\[3pt]for Erd\H{o}s 883(i)}{A proof guide and expository companion}{12 October 2026 (UTC), version 1.0}
+\begin{abstract}
+This guide explains how a proposed odd-cycle construction in dense coprime graphs separates its structural mechanism from arithmetic and computational evidence. The central move is to choose an odd skeleton, control weak gaps by ordering adjusted arithmetic weights, and choose distinct common-neighbor connectors. A small explicit example illustrates the construction. The guide is not a substitute for the complete proof and its certificates, and it makes no first-solver or formalization claim.
+\end{abstract}
+
+\section{The question}
+For $A\subseteq\{1,\ldots,n\}$, join distinct integers precisely when they are coprime. Erd\H{o}s~883(i) asks whether
+\[
+ |A|>\floor{n/2}+\floor{n/3}-\floor{n/6}
+\]
+forces every odd simple cycle of length at most $\floor{n/3}+1$~\cite{ES97,Bloom}. The threshold has a simple obstruction: the integers divisible by $2$ or $3$ split into even integers and odd multiples of $3$. Neither part contains an edge internally, so the graph is bipartite.
+
+The accompanying manuscript~\cite{Jentges} presents an all-$n$ computer-assisted argument at this threshold. What is worth explaining separately is the construction that turns arithmetic common-neighbor information into a simple cycle.
+
+\section{Build an odd cycle from a path and a closing edge}
+To build $C_{2\ell+1}$, choose $\ell+1$ distinct odd vertices
+$o_0,\ldots,o_\ell$ with $\gcd(o_0,o_\ell)=1$. Insert a common neighbor between each consecutive pair. If the inserted vertices are distinct and outside the skeleton, then
+\[
+ o_0,u_1,o_1,\ldots,u_\ell,o_\ell,o_0
+\]
+is the required simple cycle.
+
+This identifies two obligations: each gap needs enough candidates, and the gaps must admit distinct choices. For lists $L_i$ of candidates, it is enough that, after sorting list sizes, the $j$th size is at least $j$. Greedy selection works because earlier gaps have used at most $j-1$ candidates. This sufficient size criterion is more restrictive than the full Hall theorem, but easier to certify using arithmetic counts.
+
+\section{Put the finite counting error into the vertex weight}
+The density $\rho(v)=\phi(v)/v$ describes coprimality with $v$. A finite interval also has counting error, so use the adjusted profile
+\[
+ w_x(v)=\rho(v)-\frac{2^{\omega(v)}}{\sqrt{2x}}.
+\]
+For distinct positive odd $u,v$ with nonnegative adjusted weights, finite inclusion--exclusion gives
+\[
+ \#\{k\le x:\gcd(k,uv)=1\}>xw_x(u)w_x(v).
+\]
+The product absorbs an explicit bound on the finite error. A high-weight pair therefore has many common candidates. Missing vertices and skeleton vertices must still be subtracted when forming the actual lists.
+
+This inequality does not say that every pair is good. It provides thresholds: a deficient list at rank $j$ must have an endpoint below a certain weight threshold.
+
+\section{Why the order matters}
+Choose the interior skeleton vertices in nonincreasing weight order; leave the endpoints free so that the closing edge can be chosen. At a fixed threshold, low-weight interior vertices then form a suffix. If $c$ skeleton vertices are low, they touch at most
+\[
+ c+\ind_{\{c>0\}}
+\]
+gaps. Without ordering, the immediate bound is $2c$.
+
+A second counting gain comes from retaining the best available odd vertices. For a threshold set of size $T(n)+1$, let $b$ be its number of missing evens. It has $h+1+b$ odd vertices, where $h=\floor{n/3}-\floor{n/6}$. Retain the $h+1$ highest-weight odds and discard $b$. Whenever a retained vertex is low, every discarded vertex is low as well. The ambient low-weight count can therefore be reduced by $b$ when bounding the retained low vertices.
+
+Together these two facts bound the number of deficient connector lists from one cumulative arithmetic count. They explain why the method can avoid individual analysis of every chosen endpoint pair in its principal construction.
+
+\section{A transparent example}
+Take $n=18$, $A=\{1,\ldots,13\}$, and skeleton $(1,13,11,7)$. Every gap admits the six even candidates $2,4,6,8,10,12$. Choosing $2,4,6$ respectively gives
+\[
+ 1,2,13,4,11,6,7,1.
+\]
+All seven vertices are distinct and every adjacent pair is coprime. This illustrates the method; it does not establish the assertion for all admissible sets at $n=18$, let alone every $n$.
+
+\section{What completes the application}
+The full argument uses two connector pools: even vertices and arbitrary unused vertices. Their criteria cover complementary missing-even parameters. Explicit arithmetic estimates handle every $n\ge10^8$; lower ranges use per-parameter and block certificates, additional small-parameter families, and residual proof-producing satisfiability computations~\cite{Jentges}.
+
+The general connector theorem is proved self-containedly in the accompanying methods note. Its application to all arithmetic instances requires the additional estimates and certificate archive. The supplied new replay covers 26,001 integers from 4000 through 30000, with three sufficient-criterion exceptions assigned to other methods. It does not replace the full historical archive. At public checkpoint \texttt{27fcb6e64e9f701ee84a43523e825cc84c93c6a2}, that archive was still absent; consult the repository and reproducibility supplement for later publication status.
+
+The second question of Erd\H{o}s~883, concerning $K(1,\ell,\ell)$ for fixed $\ell$ and all sufficiently large $n$, is historically due to G\'abor N. S\'ark\"ozy~\cite{S99}. It is not claimed as a new result of this project. The main manuscript also acknowledges related 2026 work by Donald Della Pietra and Yicheng Pan. This exposition is offered as an explanation of a particular construction, not as a priority demand or an assertion that other proofs are invalid.
+
+\medskip
+\noindent\textbf{Authorship and assistance.} I selected and directed the project. AI systems substantially assisted reasoning, checking and writing. No external human referee endorsement or complete Lean formalization is asserted. The exposition is supplied for mathematical reading and review.
+
+\begin{thebibliography}{9}
+\bibitem{ES97} P. Erd\H{o}s and G. N. S\'ark\"ozy, \emph{On cycles in the coprime graph of integers}, Electronic Journal of Combinatorics \textbf{4}(2) (1997), R8. \href{https://doi.org/10.37236/1323}{doi:10.37236/1323}.
+\bibitem{Bloom} T. F. Bloom, \emph{Erd\H{o}s Problem 883}. \url{https://www.erdosproblems.com/883}.
+\bibitem{Jentges} C. Jentges, \emph{Ordered-weight certificates for odd cycles in dense coprime graphs}, version 1.1, 12 October 2026. Paper, related-work references and public evidence: \url{https://github.com/wizardscurtain/erdos-883-ordered-weight-proof}.
+\bibitem{S99} G. N. S\'ark\"ozy, \emph{Complete tripartite subgraphs in the coprime graph of integers}, Discrete Mathematics \textbf{202} (1999), 227--238. \href{https://doi.org/10.1016/S0012-365X(98)00359-8}{doi:10.1016/S0012-365X(98)00359-8}.
+\end{thebibliography}
+\end{document}

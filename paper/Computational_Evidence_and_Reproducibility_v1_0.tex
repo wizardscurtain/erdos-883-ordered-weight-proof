@@ -1,0 +1,113 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,tabularx,array}
+\usepackage{microtype,enumitem,needspace,xurl}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdfauthor={Cecil Jentges}}
+\setlength{\parskip}{4pt plus 1pt minus 1pt}
+\setlength{\parindent}{1.2em}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[1]
+\setlist{nosep,leftmargin=1.4em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\wt}{\widetilde\rho}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\dochead}[3]{\begin{center}{\LARGE\bfseries #1\par}\vspace{10pt}{\large Cecil Jentges\par}\vspace{3pt}{\small Independent researcher\par}\vspace{6pt}{\small #2\par}\vspace{3pt}{\small #3\par}\end{center}}
+
+\hypersetup{pdftitle={Computational evidence and reproducibility for Erdos 883(i)}}
+\begin{document}
+\dochead{Computational evidence and\\[3pt]reproducibility for Erd\H{o}s 883(i)}{A companion to the ordered-weight manuscript}{12 October 2026 (UTC), version 1.0}
+\begin{abstract}
+This supplement maps a computer-assisted proof candidate to its structural arguments, finite certificates and analytic estimates. It distinguishes public files, reported historical computations, fresh bounded checks, and mathematical review. It documents the supplied integer-only replay over 4,000 through 30,000 and the separate evidence still needed for the full application. This is an evidence guide, not a replacement for the certificate archive or a new independent proof.
+\end{abstract}
+
+\section{Result, version and scope}
+The associated manuscript is Cecil Jentges, \emph{Ordered-weight certificates for odd cycles in dense coprime graphs}, version 1.1, dated 12 October 2026~\cite{paper}. Its part-(i) assertion has the exact strict threshold
+\[
+ |A|>T(n),\qquad T(n)=\floor{n/2}+\floor{n/3}-\floor{n/6},
+\]
+and asks for every odd simple cycle of length $3\le L\le\floor{n/3}+1$, for every positive integer $n$. Equivalently, the lengths are $2\ell+1$ for $1\le\ell\le\floor{n/6}$. The range is empty for $n<6$.
+
+The principal manuscript combines mathematical deductions with computational assertions. Verification of selected arithmetic tests alone does not discharge all of those assertions. The already-known second question is attributed to G\'abor N. S\'ark\"ozy~\cite{sarkozy}; its use is explained in Section~7 of the main manuscript and is not claimed as a new discovery.
+
+\subsection*{Public checkpoint}
+The public repository checkpoint inspected for this supplement is commit
+\begin{center}\small\texttt{27fcb6e64e9f701ee84a43523e825cc84c93c6a2}.\end{center}
+It contains the typeset main paper, its LaTeX sources, the new integer verifier and the complete per-$n$ output. The historical finite/block certificate and SAT/LRAT archive is not in that checkpoint. This is a dated inventory statement, not an assertion that later versions cannot add it. A later completed release should record its own commit and evidence manifest without silently changing this historical checkpoint.
+
+\section{The proof-to-evidence map}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\linewidth}{@{}p{0.23\linewidth}X@{}}
+\toprule
+Component & What must establish it \\\midrule
+Graph construction & Proofs of the closing-edge skeleton, discarded-tail estimate, ordered-gap bound and distinct connector criterion. \\
+Arithmetic specialization & Finite inclusion--exclusion error, adjusted-product inequality with nonnegative weights, and subtraction of unavailable vertices. \\
+Small parameters & E/R/M certificate reductions, correct shortest-cycle and Family M conditions, and the associated scanner records. \\
+Residual small cases & All 99 required SAT instances, witness-cycle checks, correct counterexample-preserving encodings, and checked unsatisfiability proofs. \\
+Intermediate range & Per-$n$ arithmetic results and 167 block certificates, with proofs that each block bounds every integer it covers. \\
+Infinite tail & A0, A1 and A2' with explicit interval bounds valid simultaneously for every $n\ge10^8$. \\
+All-$n$ assembly & A ledger connecting these ranges and exceptional parameters without gaps; all connecting implications must be justified. \\\bottomrule
+\end{tabularx}
+
+The simple G/GA criterion is sufficient rather than necessary. A failed certificate sends that parameter to another method; it is not itself a counterexample. Sampling within a block does not replace the block-domination proof. An asymptotic estimate without an explicit starting point does not cover a finite remainder.
+
+\section{The supplied integer-only replay}
+The supplied output \path{INTEGER_PER_N_4000_30000.jsonl} has one record for each of the 26,001 integers in the inclusive interval $[4000,30000]$. Of these, 25,998 pass the stronger sufficient G/GA criterion. The only failures are
+\[
+ 4025,\quad4029,\quad4035.
+\]
+They are assigned to separately archived E/R/M certificates, not counted as positive G/GA results. The historical replay summary reports a minimum successful integer slack of 116 and 3,598 exact-fallback rows. The latter counts fallback evaluations in that replay, not failed mathematical instances.
+
+The SHA-256 of the complete output is
+\begin{quote}\small\path{78589bde77d8dd2c3447556ba97a4c67365f81a1799c792942ff03dc23f8dc84}.\end{quote}
+The checker uses directed rational bounds and exact integer decisions. Its source and tests are included with the output. In contrast, the older file named \path{famG_exact.py} uses a floating-point filter with exact fallback near boundaries; it must not be described as literally integer-only.
+
+The existing replay is preserved rather than backdated or relabeled as a new execution. The packaging checks independently count rows, check the consecutive range and exceptions, compare file identities, and run bounded tests. Their machine-readable receipt states the actual operations performed. They do not constitute a second full replay of all 26,001 instances unless explicitly recorded as such.
+
+\section{Reproduction with separate levels of assurance}
+\subsection*{Level 1: identity and inventory}
+Confirm the files exist and match their hashes. Hash equality identifies bytes; it is not a proof of the mathematical content. For the historical archive, retain its original manifest and verify its relative dependencies before applying any new release-level manifest.
+
+\subsection*{Level 2: bounded checks of the new implementation}
+In a clean environment, inspect \path{requirements.txt} and the code before installing dependencies. From the new verification directory, run:
+\begin{verbatim}
+python test_integer_replay.py --output new_bounded_receipt.json
+\end{verbatim}
+The tests compare decisions with exact integer predicates, exercise equality cases and product arithmetic, check ordered-gap patterns and fixed-list reserve examples, and test selected arithmetic parameters. A successful receipt means those tests passed, not that all historical evidence was rechecked.
+
+\subsection*{Level 3: replay of the new per-parameter calculation}
+The verifier's command-line help describes the per-$n$ and block modes. Select the inclusive interval 4000 through 30000 and preserve a fresh output rather than overwriting the original. Compare all mathematically relevant fields with the archived output; record versions, commands, exit status and differences. A packaging action that reads the JSONL file is not this calculation.
+
+\subsection*{Level 4: historical computational evidence}
+The historical package has its own replay script, code, manifest, coverage ledger and dependency requirements. The full path includes scanner regeneration, SAT witness and CNF reconstruction, proof checking, arithmetic block computation and analytic interval bounds. Read the scripts before executing them. Their output must be checked at the declared source version; summaries of old runs are not automatically fresh replays. A quick ledger mode primarily checks recorded evidence and integrity, whereas deeper modes regenerate and recheck more material.
+
+\subsection*{Level 5: mathematical implications}
+A proof review must also check that the encoding represents the claimed obstruction, the symmetry and compression reductions preserve counterexamples, the analytic inequalities use valid bounds at endpoints, and the combined coverage is exhaustive. No number of file hashes substitutes for these connecting arguments.
+
+\section{Corrections retained in the mathematical record}
+The main revision removes an impossible explanatory margin claim $u^2-F(u)\ge0.10$ on an interval beginning at $u=0.3$, since $F(u)\ge0$ implies $u^2-F(u)\le0.09$ there. The operative tail argument uses the separate A0/A1/A2' inequalities, not that sentence.
+
+An A2' numerical margin approximately $0.058964$ is conservatively described as greater than $0.058$, not at least $0.059$. Family M's R branch uses the admissibility condition $|X|\ge\max(\ell+1,g_C+1)$. Historical files retain their identity; corrections and later checks are recorded separately. These corrections explain the current exposition and are not a claim that every other proof obligation has been independently audited in this packaging session.
+
+\section{What a complete public evidence release contains}
+The public record should provide the main paper and sources; every indispensable historical certificate, input and checker; dependency versions; the new integer replay; a range-and-exception ledger; and an accurate attribution and revision record. Large evidence may be hosted in a stable linked archive, but a private repository link does not make it publicly accessible. The full historical archive is not contained in this document package.
+
+The computer-assisted argument does not need a finished Lean translation to be read as mathematics. Conversely, a conditional Lean reduction does not supply the finite or analytic premises it assumes. No completed Lean proof is claimed by this release.
+
+\medskip
+\noindent\textbf{Authorship and assistance.} I selected and directed the project. AI systems substantially assisted mathematical reasoning, programming, checking and writing. Independent code paths and AI-assisted checks are described separately from external human peer review. No organizer acceptance, prize entitlement or settled priority is asserted.
+
+\begin{thebibliography}{9}
+\bibitem{paper} C. Jentges, \emph{Ordered-weight certificates for odd cycles in dense coprime graphs}, version 1.1, 12 October 2026. Public paper and evidence map: \url{https://github.com/wizardscurtain/erdos-883-ordered-weight-proof}.
+\bibitem{checkpoint} Public repository tree at the checkpoint specified in Section~1. \url{https://github.com/wizardscurtain/erdos-883-ordered-weight-proof/tree/27fcb6e64e9f701ee84a43523e825cc84c93c6a2}.
+\bibitem{sarkozy} G. N. S\'ark\"ozy, \emph{Complete tripartite subgraphs in the coprime graph of integers}, Discrete Mathematics \textbf{202} (1999), 227--238. \href{https://doi.org/10.1016/S0012-365X(98)00359-8}{doi:10.1016/S0012-365X(98)00359-8}.
+\end{thebibliography}
+\end{document}
