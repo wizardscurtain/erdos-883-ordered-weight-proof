@@ -1,0 +1,251 @@
+\input{preamble}
+\begin{document}
+\thispagestyle{plain}
+\begin{center}
+{\LARGE\bfseries Ordered-weight certificates for odd cycles\\[4pt] in dense coprime graphs\par}
+\vspace{9pt}
+{\large A computer-assisted argument for Erd\H{o}s Problem 883(i)\par}
+\vspace{12pt}
+{\large Cecil Jentges\par}
+{\small Independent researcher\par}
+\vspace{6pt}
+{\small\version\par}
+\end{center}
+\begin{abstract}
+For $A\subseteq\{1,\ldots,n\}$, let $G(A)$ join distinct integers precisely when they are coprime. We present a computer-assisted proof that
+$|A|>\lfloor n/2\rfloor+\lfloor n/3\rfloor-\lfloor n/6\rfloor$
+forces every odd cycle of length at most $\lfloor n/3\rfloor+1$, for every $n$.
+The central construction chooses an odd skeleton and fills its gaps with distinct common neighbors. An adjusted totient weight absorbs a finite inclusion--exclusion error into a product bound. Ordering the interior skeleton by this weight bounds the number of deficient connector lists using a single cumulative count, rather than a separate transition count for each divisibility signature. Even connectors and arbitrary unused connectors provide complementary certificates. Explicit finite-prefix distribution bounds cover all $n\ge10^8$; smaller parameters are covered by arithmetic certificates and proof-producing satisfiability computations. The supporting certificate archive is an integral part of the argument. We separate the reusable graph-theoretic mechanism, the arithmetic specialization, the finite evidence, and the independently attributed resolution of the second question.
+\end{abstract}
+\noindent\textbf{Keywords.} Coprime graphs; odd cycles; ordered Hall condition; totient distribution; computer-assisted proof; exact certificates.
+
+\medskip
+\noindent\textit{Review and version note.}
+This manuscript consolidates the project proof of 10 October 2026 and its 11 October analytic supplement. The present revision is prepared for mathematical review. It does not assert organizer acceptance, global priority, external human endorsement, or a complete Lean formalization. Substantial AI assistance and the exact scope of checking are described in Section~\ref{sec:evidence}.
+
+\section{The problem and the contribution}\label{sec:statement}
+Write $[n]=\{1,\ldots,n\}$ and
+\[
+ T(n)=\floor{n/2}+\floor{n/3}-\floor{n/6}.
+\]
+The graph $G(A)$ is simple and undirected. Thus a cycle always means a simple cycle with the stated number of distinct vertices, not merely a closed walk.
+
+\begin{theorem}[All-$n$ odd-cycle assertion]\label{thm:main}
+For every integer $n\ge1$ and every $A\subseteq[n]$, if $|A|>T(n)$, then $G(A)$ contains $C_L$ for every odd integer $L$ with
+\[
+3\le L\le\floor{n/3}+1.
+\]
+\end{theorem}
+The proof combines the mathematical reductions below with the finite certificate assertions in Section~\ref{sec:finite}. Their input files, checks, and coverage are part of the proof, rather than optional experimental support.
+
+The density threshold is sharp. Indeed,
+\[
+ U_n=\{v\in[n]:2\mid v\text{ or }3\mid v\}
+\]
+has $T(n)$ elements. Its even vertices form an independent set, as do its odd multiples of $3$. Hence $G(U_n)$ is bipartite and has no odd cycle.
+
+Put $n=6k+r$ with $0\le r\le5$. The largest odd integer at most $\lfloor n/3\rfloor+1$ is $2k+1$. Therefore Theorem~\ref{thm:main} is equivalent to requiring $C_{2\ell+1}$ for every $1\le\ell\le\lfloor n/6\rfloor$. The requested range is empty for $n<6$. There is no unspecified lower bound on $n$ in the theorem.
+
+\subsection{Antecedents and scope}
+Erd\H{o}s and S\'ark\"ozy established an odd-cycle result with a positive linear half-length constant and posed the sharp-range problem~\cite{ES97}. S\'ark\"ozy subsequently settled the separate complete-tripartite question~\cite{S99}. A 2026 manuscript of Della Pietra describes an asymptotic route using surplus selection, totient profiles, divisibility signatures, and Hall-type matching~\cite{DP26}. Pan's contemporaneous manuscript presents another all-$n$ completion~\cite{Pan26}.
+
+The contribution developed here is the adjusted-weight pair estimate and its use with an ordered interior skeleton, together with complementary connector families and a finite-to-infinite certificate assembly. The common ingredients---inclusion--exclusion, the totient product, Hall's principle, and extremal density examples---are not claimed as inventions of this work. The methodological distinction concerns their particular combination. This paper does not claim a stronger final odd-cycle theorem than other all-$n$ solutions or assert a settled historical priority.
+
+\subsection{Proof outline}
+The proof has four interfaces. First, an ordering argument converts common-neighbor information into distinct connector choices. Second, the adjusted totient profile provides that common-neighbor information. Third, explicit arithmetic counts verify the resulting criteria for every relevant missing-even parameter. Finally, finite certificates cover the range below the analytic threshold. This separation permits a reviewer to check the structural proof without reproducing the entire search that discovered the certificates.
+
+\section{Ordered weights and connector selection}\label{sec:method}
+For a real number $z$, write $z_+=\max(0,z)$ and put
+\[
+ H(c)=c+\ind_{\{c>0\}}\qquad(c\in\NN).
+\]
+The function $H$ is nondecreasing.
+
+\begin{lemma}[Discarded-tail bound]\label{lem:tail}
+Let $Y_0\subseteq Y\subseteq\Omega$ be finite, let $w:\Omega\to\mathbb R$, and suppose
+$|Y\setminus Y_0|=\beta$ and $w(y)\le w(y_0)$ for every $y\in Y\setminus Y_0$ and $y_0\in Y_0$. Then for every $t\in\mathbb R$,
+\[
+\#\{y_0\in Y_0:w(y_0)<t\}
+\le\pos{\#\{v\in\Omega:w(v)\le t\}-\beta}.
+\]
+\end{lemma}
+\begin{proof}
+If the left side is zero, the claim is immediate. Otherwise choose a retained vertex of weight below $t$. Every discarded vertex has weight below $t$ as well. The discarded vertices and the retained vertices counted on the left are disjoint subsets of the ambient set counted on the right before subtracting $\beta$.
+\end{proof}
+
+\begin{lemma}[Ordered-gap bound]\label{lem:gaps}
+Let $o_0,\ldots,o_\ell$ be distinct vertices, with $\ell\ge1$, and suppose
+\[
+ w(o_1)\ge w(o_2)\ge\cdots\ge w(o_{\ell-1}).
+\]
+The two endpoints are not required to respect this ordering. For a threshold $t$, mark a gap $(o_i,o_{i+1})$ if one of its endpoints has weight below $t$. If $c$ skeleton vertices have weight below $t$, at most $H(c)$ gaps are marked.
+\end{lemma}
+\begin{proof}
+For gaps $i\le\ell-2$, assign a marked gap to $o_{i+1}$ whenever that vertex has weight below $t$. Otherwise assign it to $o_i$. The latter case can occur only for $i=0$: within the nonincreasing middle, a low-weight vertex cannot precede a high-weight vertex. These assignments are injective. The final gap adds at most one. When $c=0$, no gap is marked. The same argument includes $\ell=1$, when the final gap is the only gap.
+\end{proof}
+
+\begin{lemma}[Ordered Hall condition]\label{lem:hall}
+Finite sets $L_1,\ldots,L_\ell$ have distinct representatives if
+\begin{equation}\label{eq:orderedhall}
+\#\{i:|L_i|\le j-1\}\le j-1\qquad(1\le j\le\ell).
+\end{equation}
+\end{lemma}
+\begin{proof}
+Sort the lists by nondecreasing size. Condition~\eqref{eq:orderedhall} says the $j$th list has at least $j$ members. At the $j$th step at most $j-1$ members have already been chosen, so greedy selection succeeds. This is a sufficient size-based form of Hall's matching principle, not a claim that it is equivalent to Hall's full condition.
+\end{proof}
+
+\begin{theorem}[Weighted connector certificate]\label{thm:abstract}
+Let $F$ be a finite simple graph. Choose $Y_0\subseteq Y\subseteq\Omega\subseteq V(F)$ as in Lemma~\ref{lem:tail}, with $|Y_0|\ge\ell+1$, and suppose $Y_0$ contains adjacent distinct endpoints $a,a'$. Choose $\ell-1$ other vertices in $Y_0$, order them by nonincreasing weight, and place $a,a'$ at the ends. Write $S=\{o_0,\ldots,o_\ell\}$ for the resulting skeleton. For each gap choose a list
+\[
+L_i\subseteq\bigl(N_F(o_{i-1})\cap N_F(o_i)\bigr)\setminus S.
+\]
+Suppose for every $1\le j\le\ell$ there is a threshold $t_j$ such that
+\[
+\min(w(o_{i-1}),w(o_i))\ge t_j\ \Longrightarrow\ |L_i|\ge j.
+\]
+Define $B_j=\bigl(\#\{v\in\Omega:w(v)\le t_j\}-\beta\bigr)_+$.
+If $H(B_j)\le j-1$ for all $j$, then $F$ contains $C_{2\ell+1}$.
+\end{theorem}
+\begin{proof}
+A list of size at most $j-1$ must correspond to a marked gap at threshold $t_j$. Lemmas~\ref{lem:tail} and~\ref{lem:gaps} bound the number of these gaps by $H(B_j)$. Lemma~\ref{lem:hall} supplies distinct representatives $u_i\in L_i$. The sequence
+\[
+ o_0,u_1,o_1,u_2,\ldots,u_\ell,o_\ell,o_0
+\]
+has the required edges; all its vertices except the repeated starting vertex are distinct because the lists avoid $S$. The edge $aa'$ closes the cycle.
+\end{proof}
+
+\begin{remark}[What the ordering accomplishes]
+A vertex-by-vertex union bound would count up to two affected gaps per low-weight vertex. The ordered middle improves this to $c+1$ when $c>0$, while allowing the coprime endpoints to be prescribed. The first rank still demands zero deficient lists. The certificate deliberately retains that strict requirement rather than replacing it by an average-degree assertion.
+\end{remark}
+
+\section{Arithmetic input: the adjusted totient profile}\label{sec:arithmetic}
+Fix $n\ge6$ and abbreviate
+\[
+ q=\floor{n/2},\quad m=\floor{n/6},\quad
+ h=\floor{n/3}-\floor{n/6},\quad T=q+h.
+\]
+It suffices to treat $|A|=T+1$, since larger sets contain a subset of this cardinality. Let
+\[
+ b=\#\{k\in[q]:2k\notin A\},\qquad Y=\{v\in A:v\text{ odd}\}.
+\]
+Then $|Y|=h+1+b$, $h\ge m$, and
+$0\le b\le\lceil n/2\rceil-h-1$.
+
+\begin{lemma}[Elementary endpoint selection]\label{lem:endpoints}
+Every $h+1$ distinct odd integers in $[n]$ contain a coprime pair.
+\end{lemma}
+\begin{proof}
+Place $1$ in group $0$ and each odd $v\ge3$ in group $\lfloor(v-3)/6\rfloor$. The nonunit members of a group are contained in $\{6j+3,6j+5,6j+7\}$ and their pairwise differences are $2$ or $4$. As they are odd, they are pairwise coprime; $1$ is coprime to everything. For odd $v\le n$ the group index is below $h$. Pigeonhole selection proves the claim.
+\end{proof}
+
+For a positive integer $v$, let $\omega(v)$ count its distinct prime divisors and put
+\[
+ \rho(v)=\frac{\phi(v)}v=\prod_{p\mid v}\left(1-\frac1p\right),
+ \qquad \wt_x(v)=\rho(v)-\frac{2^{\omega(v)}}{\sqrt{2x}}\quad(x>0).
+\]
+Products here and below run over distinct primes. The empty product is $1$ and $\omega(1)=0$.
+
+\begin{lemma}[Finite inclusion--exclusion error]\label{lem:legendre}
+For a nonempty finite set $P$ of primes and a real $x\ge0$, let $c_P(x)$ count the integers in $[1,x]$ divisible by no prime in $P$. Then
+\[
+\left|c_P(x)-x\prod_{p\in P}(1-1/p)\right|<2^{|P|-1}.
+\]
+\end{lemma}
+\begin{proof}
+For $P=\varnothing$, the error is $\lfloor x\rfloor-x\in(-1,0]$. Adjoining $p\notin P$ gives
+$c_{P\cup\{p\}}(x)=c_P(x)-c_P(x/p)$ and the same subtraction for the main terms. The first subtraction gives an error in $(-1,1)$; each additional subtraction doubles the strict symmetric bound.
+\end{proof}
+
+\begin{lemma}[Adjusted-product bound]\label{lem:pair}
+Let $u,v$ be distinct positive odd integers and let $x$ be a positive integer. If $\wt_x(u),\wt_x(v)\ge0$, then
+\begin{equation}\label{eq:pair}
+\#\{k\in[x]:\gcd(k,uv)=1\}>x\wt_x(u)\wt_x(v).
+\end{equation}
+\end{lemma}
+\begin{proof}
+The prime support of $uv$ is nonempty, since distinct positive integers cannot both be $1$. Put $e=2^{\omega(u)}/\sqrt{2x}$ and $e'=2^{\omega(v)}/\sqrt{2x}$. A prime dividing both endpoints contributes once to $\rho(uv)$ but twice to $\rho(u)\rho(v)$, so $\rho(uv)\ge\rho(u)\rho(v)$. Also
+$2^{\omega(uv)-1}\le2^{\omega(u)+\omega(v)-1}=xee'$.
+Lemma~\ref{lem:legendre} now gives a strict lower bound by
+$x(\rho(u)\rho(v)-ee')$. Finally,
+\[
+ \rho(u)\rho(v)-ee'-(\rho(u)-e)(\rho(v)-e')
+ =e'(\rho(u)-e)+e(\rho(v)-e')\ge0.
+\]
+\end{proof}
+The point of the adjustment is that the pair-dependent error has become a product of two one-vertex weights. No assertion that $u,v$ are coprime to one another is needed in Lemma~\ref{lem:pair}.
+
+\section{Two complementary connector families}\label{sec:families}
+Fix $1\le\ell\le m$. For either $w=\wt_q$ or $w=\wt_n$, retain $h+1$ elements $Y_0$ of largest weight in $Y$. Exactly $b$ selected odds are discarded. Lemma~\ref{lem:endpoints} gives coprime endpoints in $Y_0$. Complete them to $\ell+1$ skeleton vertices, ordering the middle by nonincreasing $w$ as in Theorem~\ref{thm:abstract}.
+
+\subsection{Even connectors: family G}
+For each gap put
+\[
+L_i=\{2k\in A:\gcd(k,o_{i-1}o_i)=1\},
+\qquad
+\Ntilde(y)=\#\{v\le n:v\text{ odd},\ \wt_q(v)\le\sqrt{y/q}\}.
+\]
+At most $b$ evens are missing. Thus, if both endpoint weights are at least
+$t_j=\sqrt{(b+j-1)/q}$, Lemma~\ref{lem:pair} makes the common-even count strictly greater than $b+j-1$, hence at least $b+j$. At least $j$ such evens lie in $A$, and they avoid the odd skeleton. Therefore
+\begin{equation}\label{eq:G}
+H\bigl((\Ntilde(b+j-1)-b)_+\bigr)\le j-1
+\qquad(1\le j\le\ell)
+\end{equation}
+is a sufficient certificate for $C_{2\ell+1}$. Negative endpoint weights cause no difficulty: the implication is used only when both weights exceed the nonnegative threshold.
+
+\subsection{Arbitrary unused connectors: family GA}
+Use $w=\wt_n$ and
+\[
+ L_i=\{z\in A\setminus S:\gcd(z,o_{i-1}o_i)=1\},\qquad
+ N_A(t)=\#\{v\le n:v\text{ odd},\ \wt_n(v)\le t\}.
+\]
+At most $(n-|A|)+|S|=n-T+\ell$ vertices of $[n]$ are unavailable. Consequently, with
+\[
+ t_j^A(\ell)=\sqrt{\frac{n-T+\ell+j-1}{n}},
+\]
+Theorem~\ref{thm:abstract} applies whenever
+\begin{equation}\label{eq:GA}
+ H\bigl((N_A(t_j^A(\ell))-b)_+\bigr)\le j-1
+ \qquad(1\le j\le\ell).
+\end{equation}
+Different parameter ranges may use different skeletons. Within one application, all rank conditions concern the same skeleton and the same connector lists.
+
+\subsection{A scalar overlap criterion}
+Let $y_1=0$ if $\Ntilde(0)>0$; otherwise let
+\[
+ y_1=\min\{y\in\NN:y\ge1,\ \Ntilde(y)\ge y\}.
+\]
+This minimum exists: $\wt_q(v)<1$ for every positive $v$, so $\Ntilde(q)=\lceil n/2\rceil\ge q$.
+Define
+\begin{equation}\label{eq:bA}
+b_A=\max\left(0,\ N_A(t_1^A(m)),\
+       \max_{2\le j\le m}\{N_A(t_j^A(m))-j+2\}\right),
+\end{equation}
+where the last maximum is omitted when $m=1$.
+
+\begin{theorem}[G/GA overlap]\label{thm:G}
+If $b_A\le y_1-m$, then Theorem~\ref{thm:main} holds at $n$.
+\end{theorem}
+\begin{proof}
+If $b+\ell\le y_1$, then $\Ntilde(b)\le b$ and
+$\Ntilde(y)\le y-1$ for $b<y\le b+\ell-1$, so~\eqref{eq:G} holds.
+For $j=1$, condition~\eqref{eq:GA} is exactly $N_A(t_1^A(\ell))\le b$. For $j\ge2$, it is equivalent to $N_A(t_j^A(\ell))\le b+j-2$. Thus $b\ge b_A$ gives family GA for $\ell=m$, and also for every smaller $\ell$ because the thresholds decrease. If $b<b_A$, then
+$b+\ell\le b_A-1+m\le y_1-1$, and family G applies.
+\end{proof}
+A convenient stronger condition for finite computations is
+\begin{equation}\label{eq:simple}
+N_{GA}:=N_A\left(\sqrt{\frac{n-T+2m-1}{n}}\right)\le y_1-m,
+\end{equation}
+since $b_A\le N_{GA}$. A failure of~\eqref{eq:simple} is a failure of this sufficient certificate, not a counterexample to the cycle theorem.
+
+\subsection{A transparent example}
+Take $n=18$ and $A=[13]$, so $T=12$, $q=9$, $h=m=3$, and $b=3$. The four selected odds with largest $\wt_9$ are $1,13,11,7$. Choose skeleton $(1,13,11,7)$: its endpoints are coprime and its interior weights are decreasing. Each gap has the six even connectors $2,4,6,8,10,12$ available. One choice produces
+\[
+ 1,2,13,4,11,6,7,1.
+\]
+Every edge is coprime and the seven vertices are distinct. This example illustrates the mechanism; the all-subsets assertion follows from the certificates, not from the example.
+
+\input{analytic}
+\input{finite}
+\input{appendices}
+\input{references}
+\end{document}
