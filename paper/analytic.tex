@@ -1,0 +1,180 @@
+\section{The infinite range: explicit finite-prefix bounds}\label{sec:analytic}
+This section supplies the mathematical reduction of the tail to fixed numerical inequalities. Throughout,
+\[
+ N_0=10^8,\quad \delta=(N_0-1)^{-1},\quad
+ Y_1=\floor{81q/100}.
+\]
+It is enough to establish
+\begin{align}
+ \Ntilde(0)&=0, &&\text{(A0)}\label{eq:A0}\\
+ \Ntilde(y)&\le y-1 &&(1\le y\le Y_1),\quad\text{(A1)}\label{eq:A1}\\
+ b_A&\le Y_1+1-m. &&\text{(A2)}\label{eq:A2}
+\end{align}
+Indeed, (A0)--(A1) give $y_1\ge Y_1+1$, after which (A2) implies Theorem~\ref{thm:G}. These are inequalities for actual finite prefixes $[n]$, uniformly over $n\ge N_0$. No limiting distribution is used as a replacement for them.
+
+\subsection{Uniform control of the weight adjustment}
+Let $\Pi_k$ be the product of the first $k$ odd primes. If $\Pi_k\le n<\Pi_{k+1}$, every odd $v\le n$ has at most $k$ distinct prime divisors and
+\[
+ \rho(v)\ge g_k:=\prod_{i=1}^k(1-1/p_i).
+\]
+Thus, writing $e_q(n)=2^k/\sqrt{2q}$ and $e_n(n)=2^k/\sqrt{2n}$,
+\begin{align}
+ \Ntilde(y)&\le N^0\bigl(\sqrt{y/q}+e_q(n)\bigr),\\
+ N_A(t)&\le N^0(t+e_n(n)),
+ \qquad N^0(\tau)=\#\{v\le n:v\text{ odd},\rho(v)\le\tau\}.
+\end{align}
+The quantities $e_q(n)$ and $e_n(n)$ decrease within each primorial interval. At successive odd primorial endpoints $P,pP$,
+\[
+ \frac{e_q(pP)^2}{e_q(P)^2}=\frac{4(P-1)}{pP-1}<\frac4p<1.
+\]
+For the normalized shift and reciprocal density scale, the corresponding ratios are
+\begin{align}
+ \frac{(e_q/g)_{pP}^{\,2}}{(e_q/g)_{P}^{\,2}}
+ &=\frac{4p^2(P-1)}{(p-1)^2(pP-1)}<\frac{4p}{(p-1)^2}<1\quad(p\ge7),\\
+ \frac{(1/(qg^2))_{pP}}{(1/(qg^2))_{P}}
+ &=\frac{p^2(P-1)}{(p-1)^2(pP-1)}<\frac{p}{(p-1)^2}<1.
+\end{align}
+The first relevant interval is truncated at $N_0$, not at $\Pi_7=4\,849\,845$. Comparing $N_0$ with $\Pi_8=111\,546\,435$ therefore controls every later interval. This proves the infinite continuation of the primorial calculation; a finite list of observed decreases is not being used as an induction argument.
+
+Let $e_q^*=\sup_{n\ge N_0}e_q(n)$ and $e_n^*=\sup_{n\ge N_0}e_n(n)$. They occur at $\Pi_8$ and are respectively
+\[
+ e_q^*=\frac{256}{\sqrt{111546434}},\qquad
+ e_n^*=\frac{256}{\sqrt{223092870}}.
+\]
+Displayed decimal approximations to these constants are for orientation only. The numerical certificates use outward interval bounds.
+
+\subsection{Small-prime classes}
+Let $Q=\{3,5,7,11,13,17,19\}$, put $P=2\prod_{p\in Q}p=9\,699\,690$, and let $\kappa=\phi(P)/P$. The count
+$C_P(y)=\#\{1\le w\le y:\gcd(w,P)=1\}$ satisfies
+\begin{equation}\label{eq:discrepancy}
+ C_P(y)\le\kappa y+D^+,\qquad D^+=\frac{2799708}{323323}.
+\end{equation}
+The discrepancy is periodic with period $P$. Between consecutive integers it decreases linearly, so its maximum occurs immediately at an integer endpoint. The recorded period scan evaluates the exact integer numerator $P C_P(y)-\phi(P)y$. Its magnitude is below $P^2<2^{63}$, so a signed 64-bit scan suffices. Equation~\eqref{eq:discrepancy} is a finite numerical certificate assertion, with its implementation and output in the source archive~\cite{Archive}.
+
+For $S\subseteq Q$, define
+\[
+ d_S=\prod_{p\in S}\frac1p\prod_{p\in Q\setminus S}\left(1-\frac1p\right),
+ \quad r_S=\prod_{p\in S}\left(1-\frac1p\right),
+ \quad U_S=\prod_{p\in S}\frac1{\sqrt p-1}.
+\]
+Every odd $v$ has a unique decomposition $v=uw$, where the prime support of $u$ is precisely $S=Q\cap\supp(v)$ and $\gcd(w,P)=1$. Let $K_S(n,\tau)$ count the integers in this class with $\rho(v)\le\tau$.
+
+Three bounds are available. First, ignoring all exclusions except divisibility by $\prod_{p\in S}p$ gives
+\begin{equation}\label{eq:trivialclass}
+ K_S(n,\tau)\le\frac{n}{2\prod_{p\in S}p}+1.
+\end{equation}
+Second, summing~\eqref{eq:discrepancy} over admissible $u\le n$ gives
+\begin{equation}\label{eq:classcount}
+ K_S(n,\tau)\le\frac n2d_S+D^+\sqrt n\,U_S.
+\end{equation}
+For the main term, use $\kappa\sum_{\supp(u)=S}u^{-1}=d_S/2$. For the error, use
+$\sum_{u\le n,\supp(u)=S}1\le\sqrt n\sum_{\supp(u)=S}u^{-1/2}=\sqrt n\,U_S$.
+
+For the third bound, let $s>0$ and
+\[
+ h_s(p)=(1-1/p)^{-s}-1,\quad
+ M(s)=\prod_{p>19}\left(1+\frac{h_s(p)}p\right),\quad
+ C(s)=\prod_{p>19}\left(1+\frac{h_s(p)}{\sqrt p}\right).
+\]
+Extend $h_s$ multiplicatively to squarefree integers supported on primes above $19$, with $h_s(1)=1$. Expanding the finite product gives
+$\rho(w)^{-s}=\sum_{d\mid w}h_s(d)$.
+All terms are nonnegative. For $X\ge1$,
+\[
+ \sum_{\substack{w\le X\\(w,P)=1}}\rho(w)^{-s}
+ \le\kappa X M(s)+D^+\sqrt X\,C(s).
+\]
+Here the error sum is bounded using $1\le(X/d)^{1/2}$ for $d\le X$. The elementary inequality
+$\ind_{\{\rho(w)\le\theta\}}\le\theta^s\rho(w)^{-s}$, followed by summation over $u$, yields
+\begin{equation}\label{eq:rankin}
+ K_S(n,\tau)\le
+ \left(\frac\tau{r_S}\right)^s
+ \left(\frac n2d_S M(s)+D^+\sqrt n\,U_S C(s)\right).
+\end{equation}
+It is useful mainly for $\tau<r_S$, although the displayed bound is valid for every $\tau>0$.
+
+\subsection{One explicit monotone envelope}
+Use the fixed exponent set
+\[
+\mathcal S=\{1,3/2,2,3,4,5,6,8,10,12,15,18,22,26,30,35,40,50,60,80\}.
+\]
+For $n\ge N_0$, equations~\eqref{eq:trivialclass}--\eqref{eq:rankin} imply
+\begin{equation}\label{eq:envelope}
+ N^0(\tau)\le\frac n2\Phi(\tau),
+\end{equation}
+where $\Phi$ is the sum, over $S\subseteq Q$, of the minimum of
+\begin{align*}
+ &\frac1{\prod_{p\in S}p}+\frac2{N_0},\qquad
+ d_S+\frac{2D^+U_S}{\sqrt{N_0}},\\
+ &\min_{s\in\mathcal S}\left(\frac\tau{r_S}\right)^s
+       \left(d_SM(s)+\frac{2D^+U_SC(s)}{\sqrt{N_0}}\right).
+\end{align*}
+Each candidate bound is nondecreasing in $\tau$, hence so is $\Phi$.
+
+The infinite Euler products have explicit tails. Put $X=10^7$. For $0<s\le80$ and $p>X$, the inequalities
+$-\log(1-z)\le z/(1-z)$ and $\exp(t)-1\le t/(1-t)$ imply
+\[
+ h_s(p)\le\frac{s}{p-1-s}\le\frac{s}{p-81}<\frac{1.001s}{p}.
+\]
+Consequently, for $\sigma'=1$ or $1/2$,
+\begin{equation}\label{eq:producttail}
+ \log\prod_{p>X}\left(1+\frac{h_s(p)}{p^{\sigma'}}\right)
+ \le \frac{1.001s}{\sigma'X^{\sigma'}}.
+\end{equation}
+The last step replaces primes by all integers and bounds their decreasing tail by an integral. The products through $10^5$ are evaluated in interval arithmetic; from $10^5$ to $10^7$, exact prime counts in buckets and monotonicity bound the summands. No unproved assumption about the omitted primes is required.
+
+\subsection{The high part of (A1)}
+For $u=\sqrt{y/q}$, we have $n/(2q)\le1+\delta$ and $1/q\le2\delta$. On every rational cell $[u_a,u_b]\subseteq[33/100,9/10]$, the inequality
+\begin{equation}\label{eq:highgrid}
+ (1+\delta)\Phi(u_b+e_q^*)+2\delta<u_a^2
+\end{equation}
+implies $\Ntilde(y)\le y-1$ for every represented integer $y$, not just for a sampled endpoint. Indeed, monotonicity bounds $\Ntilde(y)/q$ by the first term, while $1/q\le2\delta$ supplies the unit reserve. The archived interval run checks all $1\,140$ cells of width $1/2000$.
+
+\subsection{The low part of (A1) and (A0)}
+Use the same moment expansion over all odd primes, with exponent $4$. If $M_o,C_o$ are the corresponding two Euler products, then
+\[
+ N^0(\tau)\le\tau^4\left(\frac n2M_o+\sqrt n\,C_o\right).
+\]
+Write $g=g_k$ on the relevant primorial interval. If $\tau<g$, the count is zero. For $\tau=u+e_q(n)\ge g$, it suffices to check
+\begin{multline}\label{eq:lowrankin}
+ (33/100+e_q^*)^2(1+\delta)
+ \left(M_o+\frac{2C_o}{\sqrt{N_0}}\right)
+ +\sup_{n\ge N_0}\frac1{qg^2}\\
+ <\left(1-\sup_{n\ge N_0}\frac{e_q(n)}g\right)^2.
+\end{multline}
+To see this, multiply the corresponding inequality with $\tau^2$ in the first factor by $\tau^2$. Since $\tau\ge g$ and $e_q<g$,
+\[
+ \frac{\Ntilde(y)}q+\frac1q
+ \le \tau^4(1+\delta)(M_o+2C_o/\sqrt{N_0})+\frac1q
+ <(\tau-e_q)^2=u^2.
+\]
+The primorial comparisons above control both suprema in~\eqref{eq:lowrankin}. They also give $e_q(n)<g_k$, so no adjusted weight is nonpositive; this proves (A0).
+
+\subsection{The overlap bound (A2)}
+Set $\xi=(j-1)/n\in[0,1/6]$. The exact floor estimates
+\[
+ T(n)\ge\frac{2n}3-\frac76,\quad
+ m\le\frac q3+\frac16,\quad j-2\ge2q\xi-1
+\]
+give
+\[
+ (t_j^A(m))^2\le\frac12+\frac7{6N_0}+\xi,
+ \qquad Y_1+1-m\ge\left(\frac{81}{100}-\frac13\right)q-\frac16.
+\]
+It is sufficient on each rational cell $[\xi_a,\xi_b]\subseteq[0,1/6]$ that
+\begin{multline}\label{eq:GAgrid}
+ (1+\delta)\Phi\left(\sqrt{\frac12+\frac7{6N_0}+\xi_b}+e_n^*\right)
+ -2\xi_a+3\delta\\
+ <\frac{81}{100}-\frac13.
+\end{multline}
+Indeed, $3\delta\ge(7/6)/q$ pays for the additive $1$ in the estimate for $N_A(t_j^A(m))-j+2$ and the $1/6$ in the lower bound for $Y_1+1-m$. For $j=1$, this establishes the stronger bound on $N_A(t_1^A(m))+1$, hence also the term required in~\eqref{eq:bA}. The archived run covers the interval by $400$ cells.
+
+\subsection{Numerical certificate interface and conclusion}
+The existing 11 October 2026 replay of \sourcepath{analytic_interval.py} reports success for all three uniform bounds. Its displayed margins are approximately
+\[
+0.0245451344\quad\text{(high A1)},\qquad
+0.3646407885\quad\text{(low A1)},\qquad
+0.0589644029\quad\text{(A2)}.
+\]
+In particular the last margin is \emph{greater than $0.058$}, not asserted to be at least $0.059$. These displayed numbers summarize the archived interval output; this typesetting revision did not rerun that entire calculation. The mathematical supplement records the primorial continuation, Euler-product tail, period scan, and grid-to-uniform deductions~\cite{TailReplay}.
+
+Subject to these explicitly identified numerical certificates, (A0)--(A2) hold for every $n\ge10^8$. Together with the overlap theorem, they establish the infinite portion of Theorem~\ref{thm:main}. The smaller values of $n$ are addressed next.
