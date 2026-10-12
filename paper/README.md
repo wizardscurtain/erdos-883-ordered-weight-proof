@@ -29,13 +29,13 @@ pdflatex -interaction=nonstopmode -halt-on-error Manuscript.tex
 
 Inspect the compiler log and the rendered document. The second pass resolves internal references. Do not use shell-escape. Generated auxiliary files are not part of the evidence release.
 
-The prepared 19-page `Manuscript.pdf` is to be uploaded here alongside these sources. Its SHA-256 is:
+The prepared 19-page `Manuscript.pdf` is awaiting upload here alongside these sources. Its SHA-256 is:
 
 ```text
-PAPER_PDF_HASH_TO_BE_RECORDED
+3049e1dff147e017ba81e4babea5ec9153df7c12fbce1ad49ba875218ddcd546
 ```
 
-This placeholder is publication metadata, not a mathematical premise. Replace it with the hash of the actual uploaded PDF before the final release. The source version and PDF must agree; a later changed source requires a rebuilt PDF and new hash.
+This checksum identifies the prepared PDF; it is not a claim that the file has already been uploaded. The source version and PDF must agree. A later changed source requires a rebuilt PDF and new hash; PDF metadata can also make a fresh build byte-different without changing the mathematics.
 
 ## Revision and attribution
 
