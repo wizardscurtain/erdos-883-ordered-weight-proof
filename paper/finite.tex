@@ -1,0 +1,77 @@
+\section{Finite certificates and the all-$n$ assembly}\label{sec:finite}
+The finite range is not inferred from samples. The source archive records complete parameter scans, a finite list of residual satisfiability obligations, and interval certificates that dominate every intermediate integer. Appendix~\ref{app:small} consolidates the small-parameter reductions without retaining superseded draft formulas.
+
+\subsection{A coverage map}
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}p{0.22\linewidth}X@{}}
+\toprule
+Range & Proof component and evidence interface\\
+\midrule
+$1\le n\le5$ & The requested odd-cycle range is empty.\\[3pt]
+$6\le n<4000$ & The E/R/M arithmetic certificate families, with the $99$ specified residual SAT instances for $n\le79$.\\[3pt]
+$4000\le n\le30000$ & The stronger G/GA criterion~\eqref{eq:simple}, except at $4025,4029,4035$, which are covered by the small-parameter certificate families.\\[3pt]
+$30001\le n\le10^8$ & $167$ interval/block certificates for G/GA; the last block ends at $10^8$.\\[3pt]
+$n\ge10^8$ & The uniform analytic inequalities (A0)--(A2). The overlap at $10^8$ is intentional.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+These are the coverage assertions of the frozen project evidence, not a claim that every listed computation was rerun for this revision. The hash-bound ledger supplies the machine-readable inventory and confirms that all required records are present~\cite{Archive}.
+
+\subsection{Dominating an entire block}
+For a block $[N_-,N_+]$, use all odd $v\le N_+$, $q_-=\lfloor N_-/2\rfloor$, and $m_+=\lfloor N_+/6\rfloor$. Compute G weights at $q_-$ and GA weights at $N_-$. For the latter use threshold square
+\[
+ R=\frac13+\frac7{6N_-}+\frac{2m_+-1}{N_-}.
+\]
+For every $n$ in the block, the ambient odd universe can only shrink; the adjustments $2^{\omega(v)}/\sqrt{2q}$ and $2^{\omega(v)}/\sqrt{2n}$ can only decrease; and the displayed threshold dominates $(n-T(n)+2m(n)-1)/n$. Therefore the block G cumulative counts dominate each per-$n$ count and the block GA count dominates each per-$n$ GA count. Its first-failure value can only be smaller, and $m_+\ge m(n)$. A successful block certificate consequently proves~\eqref{eq:simple} at every integer in the block.
+
+\subsection{The residual satisfiability obligations}
+After applying the arithmetic families, the recorded $86$ triples $(n,b,\text{first uncovered }\ell)$ expand to $99$ required target instances. Each asks whether a set $A\subseteq[n]$ of size $T+1$, with exactly $b$ missing evens, avoids a specified odd cycle. The reduction to a finite SAT instance has the following mathematical ingredients.
+
+\paragraph{Support compression.}
+If $x\in A$, $y\notin A$, $\supp(x)\subsetneq\supp(y)$, and $x,y$ have the same parity, replace $x$ by $y$. Any new cycle using $y$ can be converted to one in the old set by replacing $y$ by $x$: coprimality with $y$ implies coprimality with $x$. Cardinality and $b$ are unchanged. The total number of prime factors in the selected supports strictly increases, so repeated compression terminates.
+
+\paragraph{Twin classes.}
+Integers with equal nonempty prime support are nonadjacent twins in the coprime graph. Permuting them preserves the graph. The empty support occurs only at $1$. Consequently a putative counterexample may be represented by a prefix in each support class. This is a reduction of all counterexamples, not a claim that arbitrary sets themselves have the canonical form.
+
+\paragraph{The additional six instances.}
+In six cases the archive also restricts $c$, the number of absent odd multiples of $3$, to $c\le c_{\max}$. Compression cannot increase $c$: when an odd support gains the prime $3$, the replacement can only decrease the number of missing multiples of $3$. All excluded $c>c_{\max}$ cases are separately covered by family M. The further prime-swap symmetries exchange $kp$ with $kp'$ when $3<p<p'$, $p^2>n$, and $\lfloor n/p\rfloor=\lfloor n/p'\rfloor$. Their multipliers are smaller than both primes, so the swaps preserve coprimality, parity, and divisibility by $3$.
+
+\paragraph{Checkable cycle exclusions and UNSAT proofs.}
+A discovered cycle justifies excluding any canonical set containing its vertex pattern. The certificate includes the canonical cycle witnessing each such exclusion. The source records $670\,834$ such witnesses across the $99$ instances. A separate encoder reconstructs the CNF, checks each witness and structural constraint, and supplies an LRAT proof of unsatisfiability. The recorded checks use \sourcepath{drat-trim} and \sourcepath{lrat-check}. A heuristic cycle search need not be complete: failure to find a cycle cannot certify an instance; successful completion requires a checked UNSAT certificate for the final sound encoding. The size-$T$ negative control returns the extremal set $U_n$.
+
+\begin{proof}[Assembly of Theorem~\ref{thm:main}]
+Reduce to $|A|=T+1$ and write the requested length as $2\ell+1$ with $1\le\ell\le m$. For $n<6$ there is no requested length. Below the analytic threshold, the coverage ledger assigns the relevant $(n,b,\ell)$ either a valid arithmetic certificate or a checked residual unsatisfiability proof. Appendix~\ref{app:small}, Section~\ref{sec:families}, and the counterexample-preserving reductions above show that these certificates imply the required cycle. The block domination argument handles every intermediate integer, rather than only block endpoints. Section~\ref{sec:analytic} covers every remaining $n$. Finally, any cycle in the chosen size-$T+1$ subset also lies in the original set.
+\end{proof}
+
+\section{Coverage of the complete original problem}\label{sec:both}
+The newly claimed contribution of this manuscript is question (i). Question (ii) asks whether, for every fixed positive integer $\ell$, there is a threshold $N(\ell)$ such that all $n\ge N(\ell)$ and all $A\subseteq[n]$ with $|A|>T(n)$ contain a not necessarily induced $K_{1,\ell,\ell}$.
+
+This second conclusion is the established theorem of G\'abor N. S\'ark\"ozy~\cite{S99}. Its complete-tripartite conclusion has part sizes tending to infinity with $n$, under the same strict density threshold; restricting the two large parts to any fixed $\ell$ gives the requested statement. In the original notation, $f(n,2)$ is the number of integers divisible by $2$ or $3$, which equals $T(n)$ by inclusion--exclusion. The threshold depends on $\ell$, not on the particular set $A$. Complete tripartite subgraph containment permits extra edges within the two large parts.
+
+Thus the proposed original-problem coverage consists of Theorem~\ref{thm:main} together with this cited historical result. No new-solver credit for S\'ark\"ozy's conclusion is claimed. This separates full mathematical coverage from the scope of the present author's contribution; it does not purport to settle an organizer's attribution decision.
+
+\section{Evidence, reproducibility, and responsibility}\label{sec:evidence}
+\subsection{Frozen source and verification boundaries}
+The mathematical source is the \sourcepath{solver/jsp000734/hall_tail_20261010} directory in the project repository, retained at commit
+\begin{center}\small\texttt{a04e7031546461920d8a3ac3f920447f1e689feb}.\end{center}
+The earlier mathematical snapshot is
+\texttt{66321f74ed35db1df594fd026ae3b2c50bc9528d}.
+The 11 October supplement is stored separately in
+\sourcepath{solver/jsp000734/submission_math_only_20261011}~\cite{TailReplay}.
+The original files and manifest should remain unchanged; this paper supersedes their exposition where the revision record says so, not their historical identity.
+
+A public mathematical submission must expose the indispensable manuscript, data, checkers, and version identifiers. A private repository URL is not a public certificate archive. The accompanying release-assembly tool exports the selected source and its manifest dependencies without publishing unrelated contest work. The PR-preparation tool inserts public links only after the release has been assembled and its public commit specified.
+
+\subsection{Checking recorded in the original development}
+The project records several AI-assisted adversarial reviews and code-disjoint reimplementations. Such records are evidence about what was checked and by which program, not independent human mathematical endorsement. The hash-bound ledger \sourcepath{code/coverage_ledger2.py} checks the expected archive. Its deep mode reconstructs SAT inputs and rechecks LRAT proofs; the scanner mode reruns the E/R/M calculations. The historical G/GA implementation uses floating-point filtering followed by an exact predicate at uncertain boundaries. It must not be described as literally integer-only at every operation. Appendix~\ref{app:arithmetic} gives the exact predicate, a bounded-error justification for the historical filter under stated arithmetic assumptions, and a new integer-only alternative.
+
+\subsection{Checks actually performed for this revision}
+The accompanying new \sourcepath{verification/integer_replay.py} uses directed rational intervals and exact integer fallback. Its bounded tests checked $150\,000$ least-threshold rows, $500\,000$ count comparisons against the exact predicate, $10\,000$ wide-product decompositions, and $58\,471$ inclusive-equality configurations. The combinatorial tests covered $20\,200$ ordered-gap configurations, $4\,108$ reserve/deletion configurations, and the worked example. A further complete integer-only replay checked every $n$ from $4000$ through $30000$: $25\,998$ cases passed the stronger G/GA certificate and exactly $4025,4029,4035$ failed it, as expected. Those three cases retain their separate E/R/M coverage. Exact details appear in \sourcepath{verification/TEST_RESULTS.json} and \sourcepath{verification/COMPLETE_PER_N_REPLAY.json}; every per-$n$ row is supplied.
+
+The per-$n$ replay is complete on $[4000,30000]$, but this revision does not claim a new replay of all $167$ blocks, the E/R/M scans, all $99$ LRAT certificates, or the analytic interval calculation. The complete historical evidence remains necessary.
+
+\subsection{Authorship, AI assistance, and scope of the claims}
+Cecil Jentges selected and directed the research and requested its development, auditing, and submission. AI systems substantially assisted mathematical development, programming, checking, and exposition. This disclosure is not a claim that every proof line was independently checked by the human author. No independent external human verifier is identified in this revision.
+
+The earlier proof development, the later comparison with related work, and any subsequent changes are distinguished in the accompanying provenance record. This revision does not assert that earlier sessions never encountered a related source. Independence and priority require supporting history, not a statement of intent or a newly assigned document date. A later comparison does not by itself erase an earlier contribution, but improvements borrowed after that comparison must be credited.
