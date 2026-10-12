@@ -1,0 +1,218 @@
+\appendix
+\section{Small-parameter arithmetic certificates}\label{app:small}
+This appendix gives the consolidated E/R/M reductions used in the finite archive. It incorporates the corrected single-gap rule, the one-per-later-endpoint count for sorted chunks, and the corrected skeleton-pool size for family M. Historical preliminary bounds are not used as the current statements.
+
+\subsection{Notation and elementary bounds}
+Continue with $q,m,h,T,b,Y$ from the main text. Put
+\[
+ \Delta=\floor{q/3}=m,\qquad \beta_0=q-\Delta,
+ \quad\Oset_3=\{v\in[n]:v\text{ odd},\ 3\mid v\},
+ \quad\Cset=\{v\in[n]:\gcd(v,6)=1\}.
+\]
+Let $X=A\cap\Cset$ and $c=|\Oset_3\setminus A|$. Then $|X|=b+c+1$.
+Choose any finite set $P$ of signature primes at least $5$. For odd $v$, write
+\[
+ S(v)=P\cap\supp(v),\qquad
+ L(v)=\supp(v)\setminus(\{2,3\}\cup P).
+\]
+The key of $v$ is $(\ind_{\{3\mid v\}},S(v))$. Let $K$ and $K_C$ count the keys realized among all odds and among $\Cset$, respectively.
+
+To avoid confusing counting losses with the totient density $\rho$, denote the exact losses by
+\begin{align*}
+ d(v)&=\#\{k\le q:3\nmid k,\ \gcd(k,v)>1\},\\
+ d_N(v)&=\#\{u\le n:\gcd(u,v)>1\}.
+\end{align*}
+For $S\subseteq P$, define the signature losses $\sigma_3(S),\sigma_A(S),\sigma_N(S)$ by counting, respectively, noncoprime integers against $\prod_{p\in S}p$ in the pools $\{k\le q:3\nmid k\}$, $[q]$, and $[n]$. Define
+\begin{align*}
+ \lambda_3(v)&=\sum_{p\in L(v)}\#\{k\le q:3\nmid k,\ p\mid k\},\\
+ \lambda_A(v)&=\sum_{p\in L(v)}\floor{q/p},\qquad
+ \lambda_N(v)=\sum_{p\in L(v)}\floor{n/p}.
+\end{align*}
+All these quantities are integers. For a discount $0\le\eta\le\Delta$, the costs are
+\[
+ c_3(v)=\sigma_3(S(v))+2\lambda_3(v),\qquad
+ c_\eta(v)=\sigma_A(S(v))+2\lambda_A(v)-\eta,
+ \qquad c_R(v)=\sigma_N(S(v))+2\lambda_N(v).
+\]
+The first is used on $\Oset_3$, and the other two on $\Cset$.
+
+The set $\Cset$ partitions into $\{1\}$ and the nonempty intersections with blocks
+$\{12j+5,12j+7,12j+11,12j+13\}$, $j\ge0$. Each block is pairwise coprime: a common prime would divide a difference in $\{2,4,6,8\}$, but its members are coprime to $6$. If the number of groups is $g_C(n)$, any $g_C(n)+1$ elements of $\Cset$ contain a coprime pair.
+
+\subsection{Ambient rough-count bounds}
+Suppose a retained pool consists of the $s$ smallest-cost elements of a selected set, with at least $\beta$ selected elements discarded. For an ambient subset $W$, let
+\[
+ \tau(W)=\min_{v\in W}c(v),\qquad
+ R(t)=\#\{v\text{ in the ambient universe}:c(v)\ge t\}.
+\]
+For $W=\varnothing$, define its rough bound to be zero. Otherwise set
+\[
+ \langle W\rangle_{c,\beta}
+ =\min\bigl(|W|,(R(\tau(W))-\beta)_+\bigr).
+\]
+The number of retained vertices in $W$ is at most this bound. Indeed, if a retained vertex lies in $W$, all discarded selected vertices have cost at least $\tau(W)$, so the same disjoint-count argument as in Lemma~\ref{lem:tail} applies. The absolute bound $|W|$ is independently valid.
+
+\subsection{Family E: even connectors}
+Use the $h+1$ smallest-cost selected odds, with cost $c_3$ on $\Oset_3$ and $c_\eta$ on $\Cset$. The subtraction is $\beta=b$. Choose coprime endpoints from the retained pool.
+For $\ell=1$, a sufficient separate rule is
+\begin{equation}\label{eq:Eone}
+ \left\langle\left\{v:d(v)\ge\ceil{(\beta_0-b)/2}\right\}\right\rangle=0.
+\end{equation}
+It gives $d(a)+d(a')<\beta_0-b$, leaving at least one common available even connector.
+
+For $\ell\ge2$, choose a separator level $g\ge0$. Require
+\[
+ h+1-\langle\{v:d(v)\ge g+1\}\rangle\ge K+3.
+\]
+After excluding the two endpoints there are enough separators to choose
+$\min(K+1,\ell-1)$ dividers. If $\ell-1\le K+1$, the middle consists entirely of dividers. Otherwise divide the remaining middle vertices into their at most $K$ key classes, order each chunk by increasing cost, and interpose dividers before, between, and after the chunks. Unused dividers stand consecutively.
+
+Let $\theta_j=\beta_0-b-j+1$. The rank-$j$ sufficient condition is
+\begin{multline}\label{eq:Ecert}
+ \left\langle\{v\in\Oset_3:c_3(v)\ge\theta_j\}
+       \cup\{v\in\Cset:c_\eta(v)\ge\theta_j+\Delta-\eta\}\right\rangle\\
+ +\min\bigl(2K+2,2\langle\{v:d(v)\ge\theta_j-g\}\rangle\bigr)
+ +K\ind_{\{\theta_j\le2g\}}\le j-1
+ \qquad(1\le j\le\ell).
+\end{multline}
+For a same-key $\Oset_3$ gap, the common-even list has size at least
+$\beta_0-b-\sigma_3(S)-\lambda_3(v)-\lambda_3(v')$.
+For a same-key $\Cset$ gap, its size is at least
+$q-b-\sigma_A(S)-\lambda_A(v)-\lambda_A(v')$.
+A bad within-chunk gap is therefore charged to its later, larger-cost endpoint. Each vertex receives at most one such charge. A separator-adjacent list has size at least $\beta_0-b-g-d(v)$; there are at most $2K+2$ such gaps and each rough endpoint participates at most twice. A divider--divider gap has size at least $\beta_0-b-2g$, and there are at most $K$ of them. These three counts give~\eqref{eq:Ecert}, then Lemma~\ref{lem:hall} gives the cycle.
+
+\subsection{Family R: a skeleton in $\Cset$}
+Put $s_0=\max(\ell+1,g_C+1)$. If $b+1\ge s_0$, retain the $s_0$ smallest-$c_R$ elements of $X$; the valid uniform subtraction is $\beta=b+1-s_0$. The pool contains coprime endpoints. For $\ell=1$, it suffices that
+\[
+ \left\langle\left\{v\in\Cset:d_N(v)\ge\ceil{(T-1)/2}\right\}\right\rangle=0.
+\]
+For $\ell\ge2$, choose separators with $d_N\le g_N$ and require
+\[
+ s_0-\langle\{v\in\Cset:d_N(v)\ge g_N+1\}\rangle\ge K_C+3.
+\]
+Use the same chunk/divider arrangement, now inside $\Cset$. Connector lists lie in $A\setminus S$, a pool of size $T-\ell$. With $\theta_j^R=T-\ell-j+1$, the condition is
+\begin{multline}\label{eq:Rcert}
+ \langle\{v\in\Cset:c_R(v)\ge\theta_j^R\}\rangle
+ +\min\bigl(2K_C+2,2\langle\{v\in\Cset:d_N(v)\ge\theta_j^R-g_N\}\rangle\bigr)\\
+ +K_C\ind_{\{\theta_j^R\le2g_N\}}\le j-1.
+\end{multline}
+The common-neighbor loss within a key is at most
+$\sigma_N(S)+\lambda_N(v)+\lambda_N(v')$; at a separator it is at most $g_N+d_N(v)$. Sorted chunks and the same gap classification prove~\eqref{eq:Rcert} sufficient.
+
+\subsection{Family M: a mixed skeleton}
+This family is checked for every possible $c\in[0,h]$. If $|X|=b+c+1\ge s_0$, apply family R with the sharper subtraction $|X|-s_0$. The condition is $|X|\ge\max(\ell+1,g_C+1)$, not merely $|X|\ge\ell+1$.
+If $|X|<g_C+1$, the mixed family does not apply. Otherwise assume
+\[
+ g_C+1\le |X|\le\ell,\qquad z=\ell+1-|X|\ge1.
+\]
+Put all of $X$ and the $z$ smallest-$c_3$ selected odd multiples of $3$ into the skeleton. The latter pool has subtraction $\beta_3=h-c-z\ge0$. Choose the coprime endpoints inside $X$. Require enough $\Cset$ separators:
+\[
+ |X|-\#\{v\in\Cset:d_N(v)\ge g_N+1\}\ge K_C+3+z.
+\]
+Use $K_C+1+z$ separators as dividers. Arrange the remaining $\Cset$ vertices in increasing-cost key chunks, and put each of the $z$ multiples of $3$ between two dividers. Further separators belong to their ordinary key chunks. Let
+\[
+ g_d=\max\{d(v):v\in\Cset,\ d_N(v)\le g_N\}.
+\]
+The availability condition ensures this maximum is over a nonempty set. On a $\Cset$--$\Cset$ gap use all unused vertices as possible connectors; on a separator--$\Oset_3$ gap use $3$-free even connectors. The latter list has size at least $\beta_0-b-g_d-d(v)$.
+
+With the same $\theta_j,\theta_j^R$, a sufficient rank bound is
+\begin{align}\label{eq:Mcert}
+ &\#\{v\in\Cset:c_R(v)\ge\theta_j^R\}\nonumber\\
+ &\quad+\min\left(2K_C+2,2\#\{v\in\Cset:d_N(v)\ge\theta_j^R-g_N\}\right)\nonumber\\
+ &\quad+(K_C+z)\ind_{\{\theta_j^R\le2g_N\}}
+ +\min\left(2z,2\langle\{v\in\Oset_3:d(v)\ge\theta_j-g_d\}\rangle_{c_3,\beta_3}\right)
+ \le j-1.
+\end{align}
+The four terms count within-chunk gaps, separator-adjacent $\Cset$ gaps, consecutive-divider gaps, and the $2z$ gaps incident to the inserted multiples of $3$. Applying ordered Hall proves the assertion.
+
+\subsection{Finite quantifiers}
+For each $n$, every admissible $b$ and every $1\le\ell\le m$ must be certified. A chosen family and its parameters may depend on $(n,b,\ell)$; a family-M certificate must account for every $c$. When a case is not certified, a separate residual certificate is required. The negative outcome of one sufficient family never closes a case. The source scanners recompute keys and costs for each allowed signature-prime set~\cite{Archive}.
+
+\section{Exact arithmetic and a fully integer verification route}\label{app:arithmetic}
+\subsection{An exact comparison predicate}
+Let $f,r,x,Q$ be positive integers, $0<f\le r$, $w\ge0$, and $P\ge0$. Define
+\[
+ X=2xQf^2-2xPr^2-4^wQr^2.
+\]
+Then
+\begin{equation}\label{eq:exactpredicate}
+ \frac fr-\frac{2^w}{\sqrt{2x}}\le\sqrt{P/Q}
+ \quad\Longleftrightarrow\quad
+ X\le0\ \text{or}\ X^2\le4^{w+1}r^4(2x)PQ.
+\end{equation}
+Indeed, move the adjustment to the right and square two nonnegative sides. The resulting inequality is
+$X\le2^{w+1}r^2\sqrt{2xPQ}$. When $X\le0$ it is automatic. Otherwise squaring preserves equivalence and gives~\eqref{eq:exactpredicate}. The formula includes $P=0$ and equality cases. For the totient profile, use $r=\rad(v)$ and $f=\phi(r)$.
+
+\subsection{What is required to justify the historical floating filter}
+The historical checker does not evaluate~\eqref{eq:exactpredicate} on every row. It uses binary64 filtering and exact fallback near a boundary. A precise sufficient execution model is round-to-nearest binary64 arithmetic for division, multiplication, subtraction and square root; exact conversion of the bounded integers; and exact output of $2^w$ for $w=0,\ldots,8$. Finite values and the absence of unaccounted approximate/fast-math operations are also required. These are numerical execution assumptions, not new mathematical hypotheses on the graph.
+
+For the archived domain $N,x\le10^8$, we have $0<f\le r\le10^8$, $w\le8$, and all converted integers are exactly representable. Assume $0\le P/Q\le4$. Let $u=2^{-53}$, $G=f/r$, $e=2^w/\sqrt{2x}$, $z=G-e$, and $t=\sqrt{P/Q}$. Direct propagation of the above rounding bounds gives
+\[
+ |\widehat G-G|\le u,\qquad
+ |\widehat e-e|<3eu,\qquad
+ |\widehat z-z|<1100u.
+\]
+Here $G\le1$, $e<256$, and $t\le2$ are deliberately loose bounds. The two operations defining $\widehat t$ contribute less than $4u$ absolute error. The final subtraction therefore gives
+\[
+ |\operatorname{fl}(\widehat z-\widehat t)-(z-t)|<1400u<1.6\cdot10^{-13}.
+\]
+Thus a $10^{-9}$ sign guard is sufficient under the stated execution model.
+
+For the least-threshold computation, if either $z$ or $\widehat z$ is positive, the preceding global estimate implies $e<2$. Repeating the estimate locally gives $|\widehat z-z|<12u$. The map $z\mapsto\max(z,0)$ is $1$-Lipschitz, and its true value is at most $1$. Squaring and multiplying by $x$ then give
+\[
+ \left|\operatorname{fl}\bigl(x\max(\widehat z,0)^2\bigr)-x\max(z,0)^2\right|<64ux.
+\]
+If both are nonpositive, both clipped values are zero. A guard of $10^{-12}x+10^{-9}$ around an integer boundary exceeds this error, including the rounding of the guard and fractional-part calculation. Away from that boundary the ceiling is unchanged; uncertain rows must use~\eqref{eq:exactpredicate}. Exact comparisons also correct the sign boundary at zero.
+
+This supplies an explicit error argument for the stated execution model. It does not retroactively certify an undocumented software environment or turn the historical implementation into an integer-only one. The next route eliminates the floating-point premises entirely.
+
+\subsection{Directed rational bounds without floating point}
+The new verifier uses $S=2^{32}$. Obtain bounds on the scaled profile using
+\[
+ g_-=\floor{Sf/r},\qquad g_+=g_-+1.
+\]
+Put $a=\lfloor S\sqrt{2x}\rfloor=\operatorname{isqrt}(2xS^2)$ and
+\[
+ e_-=\floor{2^wS^2/(a+1)},\qquad
+ e_+=\ceil{2^wS^2/a}.
+\]
+Then $(g_--e_+)/S\le\wt_x(v)\le(g_+-e_-)/S$. Similarly,
+\[
+ t_-=\operatorname{isqrt}\bigl(\floor{PS^2/Q}\bigr),\qquad t_+=t_-+1
+\]
+bound $S\sqrt{P/Q}$. Accept only when the upper weight bound is at most $t_-$, reject only when the lower weight bound exceeds $t_+$, and use~\eqref{eq:exactpredicate} otherwise. Every decision is certified by integers; floating point is not used even to select a side of the comparison.
+
+For
+\[
+ k_x(v)=\min\{k\ge0:\wt_x(v)\le\sqrt{k/x}\}
+       =\ceil{x\max(\wt_x(v),0)^2},
+\]
+apply the same directed weight bounds to obtain lower and upper ceilings. If they agree, the common value is certified. Otherwise use exact binary search between them.
+
+\subsection{Overflow bounds}
+The vectorized implementation uses unsigned 64-bit integers for $Sf$ and for the square of a scaled positive weight $W<S$. Since $f\le10^8$, $Sf<2^{59}$; also $W^2<2^{64}$. To avoid forming the potentially larger product $xW^2$, write $W^2=z_0+Sz_1$ and compute
+\[
+ p_0=xz_0,\qquad p_1=xz_1+\floor{p_0/S}.
+\]
+Then $\lfloor xW^2/S^2\rfloor=\lfloor p_1/S\rfloor$. Its remainder is nonzero precisely when either $p_0\bmod S$ or $p_1\bmod S$ is nonzero. Both products stay below $2^{60}$ on the enforced domain. Signed weight differences have magnitude below $2^{40}$. The exact fallback uses Python's arbitrary-precision integers. Histogram counts and cumulative counts are at most the ambient number of odds and fit signed 64-bit integers.
+
+These bounds justify the new implementation's arithmetic structure; the accompanying tests are additional implementation checks, not substitutes for these bounds.
+
+\section{Methodological consequences and boundaries}\label{app:methodconsequences}
+\begin{corollary}[Connector reserve]
+In Theorem~\ref{thm:abstract}, replace the good-list conclusion $|L_i|\ge j$ by $|L_i|\ge j+r$, where $r\ge0$ is an integer, and retain $H(B_j)\le j-1$. After deletion of any at most $r$ candidate connector vertices, the same skeleton can still be completed to a cycle.
+\end{corollary}
+\begin{proof}
+The ordered list sizes satisfy $d_j\ge j+r$. Deletion of at most $r$ vertices leaves the $j$th list, in that original order, with at least $j$ choices before earlier representatives are removed. Greedy selection succeeds.
+\end{proof}
+\begin{corollary}[Counting labelled completions]
+For fixed ordered skeleton and connector lists whose nondecreasing sizes are $d_1,\ldots,d_\ell$ with $d_j\ge j$, the number of injective choices of representatives is at least
+\[
+ \prod_{j=1}^{\ell}(d_j-j+1).
+\]
+In particular $d_j\ge j+r$ gives at least $(r+1)^\ell$ labelled connector assignments.
+\end{corollary}
+\begin{proof}
+At the $j$th greedy step, no more than $j-1$ candidates have been used. Multiply the lower bounds over the decision tree. This counts assignments to the fixed lists; it is not an unqualified enumeration of unlabelled cycles across different skeletons.
+\end{proof}
+These are elementary consequences of the construction, not a claim of new global resilience or counting bounds for every dense coprime graph. Such stronger applications require the corresponding reserve inequalities, which are not established here. The separate methods note explains the abstraction and its possible research directions; it is a companion exposition rather than a second independently claimed resolution of Problem 883.
