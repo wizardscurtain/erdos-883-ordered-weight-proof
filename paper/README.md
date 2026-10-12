@@ -29,16 +29,16 @@ pdflatex -interaction=nonstopmode -halt-on-error Manuscript.tex
 
 Inspect the compiler log and the rendered document. The second pass resolves internal references. Do not use shell-escape. Generated auxiliary files are not part of the evidence release.
 
-The prepared 19-page `Manuscript.pdf` is awaiting upload here alongside these sources. Its SHA-256 is:
+The prepared 19-page `Manuscript.pdf` is present alongside these unchanged sources. Its 404,447 bytes have SHA-256:
 
 ```text
 3049e1dff147e017ba81e4babea5ec9153df7c12fbce1ad49ba875218ddcd546
 ```
 
-This checksum identifies the prepared PDF; it is not a claim that the file has already been uploaded. The source version and PDF must agree. A later changed source requires a rebuilt PDF and new hash; PDF metadata can also make a fresh build byte-different without changing the mathematics.
+The downloaded public bytes matched this checksum. The source version and PDF remain paired; neither was changed by the public-evidence revision. A later changed source requires a rebuilt PDF and new hash; PDF metadata can also make a fresh build byte-different without changing the mathematics.
 
 ## Revision and attribution
 
-The current exposition incorporates the numerical and small-parameter wording corrections documented in [`../provenance/REVISION_RECORD.md`](../provenance/REVISION_RECORD.md). Historical certificate files are not silently edited to conceal earlier wording.
+The current exposition incorporates the numerical and small-parameter wording corrections documented in [`../provenance/REVISION_RECORD.md`](../provenance/REVISION_RECORD.md). The public derivative preserves certificate data unchanged and explicitly documents editorial changes to historical notes in [`../evidence/PUBLIC_REVISION.md`](../evidence/PUBLIC_REVISION.md); it does not silently edit the historical source.
 
 See [`../AUTHORSHIP.md`](../AUTHORSHIP.md) and [`../EVIDENCE_MAP.md`](../EVIDENCE_MAP.md). The broader private research-methodology account is not a manuscript dependency and is not included here.

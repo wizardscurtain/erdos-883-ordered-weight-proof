@@ -1,0 +1,6 @@
+{"n": 66, "k": 23, "size": 45, "b": 10, "cmax": 0, "symm": true, "iters": 6691, "exact_calls": 0, "result": "VERIFIED_NO_COUNTEREXAMPLE", "sec": 8.98}
+{"n": 66, "k": 23, "size": 45, "b": 9, "cmax": 1, "symm": true, "iters": 6966, "exact_calls": 0, "result": "VERIFIED_NO_COUNTEREXAMPLE", "sec": 7.75}
+{"n": 67, "k": 23, "size": 45, "b": 10, "cmax": 0, "symm": true, "iters": 6909, "exact_calls": 0, "result": "VERIFIED_NO_COUNTEREXAMPLE", "sec": 9.05}
+{"n": 67, "k": 23, "size": 45, "b": 9, "cmax": 1, "symm": true, "iters": 7035, "exact_calls": 0, "result": "VERIFIED_NO_COUNTEREXAMPLE", "sec": 8.54}
+{"n": 78, "k": 27, "size": 53, "b": 11, "cmax": 1, "symm": true, "iters": 62364, "exact_calls": 0, "result": "VERIFIED_NO_COUNTEREXAMPLE", "sec": 221.12}
+{"n": 79, "k": 27, "size": 53, "b": 11, "cmax": 1, "symm": true, "iters": 63080, "exact_calls": 0, "result": "VERIFIED_NO_COUNTEREXAMPLE", "sec": 228.44}

@@ -1,0 +1,304 @@
+{
+  "release": "public-derivative-20261012-v1",
+  "recorded_at_utc": "2026-10-12T06:39:04.171028+00:00",
+  "author": "Cecil Jentges",
+  "scope": "public derivative integrity, preservation and selected fresh computational checks",
+  "base_public_commit": "27fcb6e64e9f701ee84a43523e825cc84c93c6a2",
+  "source_commit": "a04e7031546461920d8a3ac3f920447f1e689feb",
+  "original_manifest_git_blob": "53b14de9be27da9e31d4be9614a08f72c8a70697",
+  "original_manifest_dependencies_verified_locally": 421,
+  "public_integrity": {
+    "status": "PUBLIC_INTEGRITY_PASSED",
+    "manifest_sha256": "d1b7054542f4dfdb0034e9691a798e8923dc5f631b9c70e41e71b0e26d9bcdea",
+    "files": 396,
+    "bytes": 78227435,
+    "original_bytes_preserved": 370,
+    "revised_files": 16,
+    "new_files": 10
+  },
+  "source_file_dispositions": {
+    "omitted": 40,
+    "revised": 16,
+    "unchanged": 370
+  },
+  "environment": {
+    "python": "3.14.3",
+    "numpy": "2.5.4",
+    "mpmath": "1.3.0",
+    "python_sat": "1.9.dev15"
+  },
+  "lrat_checker": {
+    "source_commit": "2e3b2dc0ecf938addbd779d42877b6ed69d9a985",
+    "binary_sha256": "e9a774c0a87e01c072a507366adf5a95a02a2fca277822f0a2c6ade653787a14",
+    "bundled": false
+  },
+  "packaging_tests": {
+    "integrity_cases": 26,
+    "mode_and_failure_cases": 7,
+    "all_passed": true,
+    "strict_mypy_public_integrity": "PASS"
+  },
+  "deep_coverage": {
+    "manifest_files": 396,
+    "manifest_mismatches": [],
+    "public_manifest_sha256": "d1b7054542f4dfdb0034e9691a798e8923dc5f631b9c70e41e71b0e26d9bcdea",
+    "verification_scope": {
+      "stored_records_and_hashes": true,
+      "sat_cnf_witness_lrat_replay": true,
+      "scanner_receipt_supplied": false,
+      "all_blocks_recomputed_by_this_command": false,
+      "analytic_tail_recomputed_by_this_command": false,
+      "mathematical_or_organizer_acceptance": false
+    },
+    "sat_instances_hash_checked": 99,
+    "sat_deep_checked": 99,
+    "second_source_1501_3999": {
+      "n": 2502,
+      "with_two_sources": 2502,
+      "single": []
+    },
+    "per_n_missing": [],
+    "blocks_exact": 167,
+    "analytic_interval": {
+      "A1_high_margin_lower": 0.02454513441320001,
+      "A1_low_margin_lower": 0.3646407884916685,
+      "A2_margin_lower": 0.05896440285042424
+    },
+    "first_source_counts": {
+      "E/R/M": 260,
+      "E/R/M+SAT": 35,
+      "E/R/M(cert9)": 1200,
+      "E/R(cert7)": 3090,
+      "G/GA exact": 25410
+    }
+  },
+  "coverage_record_comparison": {
+    "status": "IDENTICAL",
+    "keys": [
+      "sat_instances_hash_checked",
+      "second_source_1501_3999",
+      "per_n_missing",
+      "blocks_exact",
+      "analytic_interval",
+      "first_source_counts"
+    ]
+  },
+  "fresh_analytic_interval": {
+    "Dp": "2799708/323323",
+    "Dp_float": 8.659167457929067,
+    "e_sup_q": 0.024238856067664787,
+    "e_sup_n": 0.017139459416823894,
+    "A1_high_margin_lower": 0.02454513441320001,
+    "A1_high_at": 0.6335,
+    "A1_low_lhs_upper": 0.4926778374376369,
+    "A1_low_rhs_lower": 0.8573186259293053,
+    "A1_low_margin_lower": 0.3646407884916685,
+    "A0": true,
+    "Modd": 3.923236397606984,
+    "A2_margin_lower": 0.05896440285042424,
+    "A2_at_xi": 0.0,
+    "ALL_OK": true
+  },
+  "fresh_exception_samples": {
+    "status": "PASS",
+    "scope": "six explicitly selected fresh rows, not a full scanner replay",
+    "n": [
+      4025,
+      4029,
+      4035
+    ],
+    "mathematical_rows": {
+      "cert7": [
+        {
+          "n": 4025,
+          "m": 670,
+          "h": 671,
+          "bmax": 1341,
+          "gC": 337,
+          "n_uncovered": 0,
+          "uncovered": []
+        },
+        {
+          "n": 4029,
+          "m": 671,
+          "h": 672,
+          "bmax": 1342,
+          "gC": 337,
+          "n_uncovered": 0,
+          "uncovered": []
+        },
+        {
+          "n": 4035,
+          "m": 672,
+          "h": 673,
+          "bmax": 1344,
+          "gC": 337,
+          "n_uncovered": 0,
+          "uncovered": []
+        }
+      ],
+      "l1": [
+        {
+          "n": 4025,
+          "l1_uncovered": [],
+          "n_l1_uncovered": 0
+        },
+        {
+          "n": 4029,
+          "l1_uncovered": [],
+          "n_l1_uncovered": 0
+        },
+        {
+          "n": 4035,
+          "l1_uncovered": [],
+          "n_l1_uncovered": 0
+        }
+      ]
+    }
+  },
+  "fresh_bounded_integer_tests": {
+    "status": "PASS",
+    "scope": "bounded new tests, not a full historical evidence replay",
+    "python": "3.14.3",
+    "numpy": "2.5.4",
+    "counts": {
+      "kappa_minimality_rows": 150000,
+      "threshold_comparisons_against_exact_oracle": 500000,
+      "wide_product_limb_checks": 10000,
+      "inclusive_equality_cases": 58471,
+      "marked_gap_configurations": 20200,
+      "reserve_deletion_configurations": 4108,
+      "worked_example_cycles": 1
+    },
+    "point_results": [
+      {
+        "n": 4000,
+        "y1": 1875,
+        "NGA": 1093,
+        "m": 666,
+        "criterion_ok": true,
+        "exact_fallbacks": 0,
+        "arithmetic": "integer-only"
+      },
+      {
+        "n": 4025,
+        "y1": 732,
+        "NGA": 1099,
+        "m": 670,
+        "criterion_ok": false,
+        "exact_fallbacks": 0,
+        "arithmetic": "integer-only"
+      },
+      {
+        "n": 4029,
+        "y1": 733,
+        "NGA": 1100,
+        "m": 671,
+        "criterion_ok": false,
+        "exact_fallbacks": 0,
+        "arithmetic": "integer-only"
+      },
+      {
+        "n": 4035,
+        "y1": 734,
+        "NGA": 1101,
+        "m": 672,
+        "criterion_ok": false,
+        "exact_fallbacks": 0,
+        "arithmetic": "integer-only"
+      },
+      {
+        "n": 4100,
+        "y1": 1923,
+        "NGA": 1118,
+        "m": 683,
+        "criterion_ok": true,
+        "exact_fallbacks": 0,
+        "arithmetic": "integer-only"
+      },
+      {
+        "n": 10000,
+        "y1": 4801,
+        "NGA": 2529,
+        "m": 1666,
+        "criterion_ok": true,
+        "exact_fallbacks": 5,
+        "arithmetic": "integer-only"
+      },
+      {
+        "n": 30000,
+        "y1": 14655,
+        "NGA": 7535,
+        "m": 5000,
+        "criterion_ok": true,
+        "exact_fallbacks": 0,
+        "arithmetic": "integer-only"
+      }
+    ],
+    "seconds": 1.2784420570001203
+  },
+  "family_M_guard": {
+    "checked_guard": 3060,
+    "guard_violations": 0,
+    "checked_R": 91506,
+    "R_violations": 0,
+    "scanner_M_violations": 0
+  },
+  "preservation_and_disclosure_inspection": {
+    "status": "PASS",
+    "scope": "migration, executable dependency closure, numeric proof-stream content, and byte preservation",
+    "mathematical_theorem_verified": false,
+    "unchanged_top_level_mathematical_functions": 142,
+    "changed_top_level_mathematical_functions": [],
+    "disclosed_driver_functions_revised": [
+      "coverage_ledger2.py:main",
+      "replay_scanners.py:main"
+    ],
+    "import_edges_examined": 238,
+    "unresolved_imports": [],
+    "historical_data_files_byte_identical": 325,
+    "uncompressed_text_files_screened": 98,
+    "compressed_files_fully_inspected": 298,
+    "compressed_content_kinds": {
+      "numeric_jsonl": 1,
+      "numeric_witness_json": 99,
+      "numeric_cnf": 99,
+      "numeric_lrat": 99
+    },
+    "total_decompressed_bytes_inspected": 572317727,
+    "controlling_public_proof_and_checker_files_unchanged": [
+      "paper/Manuscript.pdf",
+      "paper/Manuscript.tex",
+      "paper/preamble.tex",
+      "paper/analytic.tex",
+      "paper/finite.tex",
+      "paper/appendices.tex",
+      "paper/references.tex",
+      "verification/integer_replay.py",
+      "verification/test_integer_replay.py",
+      "verification/INTEGER_PER_N_4000_30000.jsonl"
+    ],
+    "limitations": [
+      "Keyword screening alone is not privacy clearance; manual review and schema-based inspection supplement it.",
+      "AST equality is not a proof of mathematical correctness.",
+      "No complete Lean proof or independent human endorsement is asserted."
+    ]
+  },
+  "fresh_commands": [
+    "python -B evidence/public_integrity.py",
+    "python -B evidence/test_public_integrity.py",
+    "python -B evidence/test_public_modes.py",
+    "python -m mypy --strict evidence/public_integrity.py",
+    "PYTHON=<validation-python> DRAT_TOOLS=<pinned-local-checker> sh evidence/hall_tail_20261010/replay.sh --deep",
+    "python -B evidence/hall_tail_20261010/code/analytic_interval.py",
+    "python -B verification/test_integer_replay.py",
+    "python -B evidence/hall_tail_20261010/code/test_familyM_guard.py"
+  ],
+  "claims_not_made": [
+    "No complete fresh replay of all historical scanners or 167 blocks.",
+    "The 26,001-row integer-only calculation was not regenerated.",
+    "No independent external human theorem verification.",
+    "No complete Lean proof, organizer acceptance, priority finding, or prize entitlement.",
+    "No claim that the old historical manifest passes over the revised public inventory."
+  ]
+}
