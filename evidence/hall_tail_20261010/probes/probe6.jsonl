@@ -1,0 +1,295 @@
+{"n": 6, "m": 1, "n_uncovered": 0, "uncovered": []}
+{"n": 7, "m": 1, "n_uncovered": 0, "uncovered": []}
+{"n": 8, "m": 1, "n_uncovered": 0, "uncovered": []}
+{"n": 9, "m": 1, "n_uncovered": 0, "uncovered": []}
+{"n": 10, "m": 1, "n_uncovered": 0, "uncovered": []}
+{"n": 11, "m": 1, "n_uncovered": 0, "uncovered": []}
+{"n": 12, "m": 2, "n_uncovered": 4, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0], [3, 2, 0]]}
+{"n": 13, "m": 2, "n_uncovered": 5, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0], [3, 2, 0], [4, 2, 0]]}
+{"n": 14, "m": 2, "n_uncovered": 5, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0], [3, 2, 0], [4, 2, 0]]}
+{"n": 15, "m": 2, "n_uncovered": 5, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0], [3, 2, 0], [4, 2, 0]]}
+{"n": 16, "m": 2, "n_uncovered": 5, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0], [3, 2, 0], [4, 2, 0]]}
+{"n": 17, "m": 2, "n_uncovered": 3, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0]]}
+{"n": 18, "m": 3, "n_uncovered": 3, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0]]}
+{"n": 19, "m": 3, "n_uncovered": 3, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0]]}
+{"n": 20, "m": 3, "n_uncovered": 4, "uncovered": [[0, 2, 0], [1, 2, 0], [2, 2, 0], [3, 3, 0]]}
+{"n": 21, "m": 3, "n_uncovered": 1, "uncovered": [[1, 3, 2]]}
+{"n": 22, "m": 3, "n_uncovered": 0, "uncovered": []}
+{"n": 23, "m": 3, "n_uncovered": 0, "uncovered": []}
+{"n": 24, "m": 4, "n_uncovered": 2, "uncovered": [[1, 4, 3], [3, 4, 3]]}
+{"n": 25, "m": 4, "n_uncovered": 4, "uncovered": [[1, 4, 3], [2, 3, 2], [3, 4, 3], [4, 4, 2]]}
+{"n": 26, "m": 4, "n_uncovered": 2, "uncovered": [[2, 4, 3], [4, 4, 3]]}
+{"n": 27, "m": 4, "n_uncovered": 0, "uncovered": []}
+{"n": 28, "m": 4, "n_uncovered": 1, "uncovered": [[3, 4, 3]]}
+{"n": 29, "m": 4, "n_uncovered": 1, "uncovered": [[3, 4, 3]]}
+{"n": 30, "m": 5, "n_uncovered": 3, "uncovered": [[2, 5, 4], [3, 4, 3], [4, 5, 4]]}
+{"n": 31, "m": 5, "n_uncovered": 3, "uncovered": [[2, 5, 4], [3, 4, 3], [4, 5, 4]]}
+{"n": 32, "m": 5, "n_uncovered": 1, "uncovered": [[3, 5, 4]]}
+{"n": 33, "m": 5, "n_uncovered": 0, "uncovered": []}
+{"n": 34, "m": 5, "n_uncovered": 0, "uncovered": []}
+{"n": 35, "m": 5, "n_uncovered": 0, "uncovered": []}
+{"n": 36, "m": 6, "n_uncovered": 3, "uncovered": [[3, 6, 5], [5, 6, 5], [6, 6, 4]]}
+{"n": 37, "m": 6, "n_uncovered": 3, "uncovered": [[3, 6, 5], [5, 6, 5], [6, 6, 4]]}
+{"n": 38, "m": 6, "n_uncovered": 1, "uncovered": [[6, 6, 5]]}
+{"n": 39, "m": 6, "n_uncovered": 0, "uncovered": []}
+{"n": 40, "m": 6, "n_uncovered": 0, "uncovered": []}
+{"n": 41, "m": 6, "n_uncovered": 0, "uncovered": []}
+{"n": 42, "m": 7, "n_uncovered": 2, "uncovered": [[6, 7, 6], [7, 7, 5]]}
+{"n": 43, "m": 7, "n_uncovered": 2, "uncovered": [[6, 7, 6], [7, 7, 5]]}
+{"n": 44, "m": 7, "n_uncovered": 0, "uncovered": []}
+{"n": 45, "m": 7, "n_uncovered": 1, "uncovered": [[6, 7, 6]]}
+{"n": 46, "m": 7, "n_uncovered": 0, "uncovered": []}
+{"n": 47, "m": 7, "n_uncovered": 0, "uncovered": []}
+{"n": 48, "m": 8, "n_uncovered": 1, "uncovered": [[7, 8, 7]]}
+{"n": 49, "m": 8, "n_uncovered": 4, "uncovered": [[5, 8, 7], [6, 8, 7], [7, 8, 7], [8, 8, 6]]}
+{"n": 50, "m": 8, "n_uncovered": 1, "uncovered": [[8, 8, 7]]}
+{"n": 51, "m": 8, "n_uncovered": 0, "uncovered": []}
+{"n": 52, "m": 8, "n_uncovered": 0, "uncovered": []}
+{"n": 53, "m": 8, "n_uncovered": 0, "uncovered": []}
+{"n": 54, "m": 9, "n_uncovered": 1, "uncovered": [[7, 9, 8]]}
+{"n": 55, "m": 9, "n_uncovered": 3, "uncovered": [[6, 9, 8], [7, 8, 7], [8, 9, 7]]}
+{"n": 56, "m": 9, "n_uncovered": 2, "uncovered": [[8, 9, 8], [9, 9, 7]]}
+{"n": 57, "m": 9, "n_uncovered": 1, "uncovered": [[8, 9, 8]]}
+{"n": 58, "m": 9, "n_uncovered": 0, "uncovered": []}
+{"n": 59, "m": 9, "n_uncovered": 0, "uncovered": []}
+{"n": 60, "m": 10, "n_uncovered": 0, "uncovered": []}
+{"n": 61, "m": 10, "n_uncovered": 0, "uncovered": []}
+{"n": 62, "m": 10, "n_uncovered": 0, "uncovered": []}
+{"n": 63, "m": 10, "n_uncovered": 0, "uncovered": []}
+{"n": 64, "m": 10, "n_uncovered": 0, "uncovered": []}
+{"n": 65, "m": 10, "n_uncovered": 0, "uncovered": []}
+{"n": 66, "m": 11, "n_uncovered": 2, "uncovered": [[9, 11, 10], [10, 11, 10]]}
+{"n": 67, "m": 11, "n_uncovered": 2, "uncovered": [[9, 11, 10], [10, 11, 10]]}
+{"n": 68, "m": 11, "n_uncovered": 0, "uncovered": []}
+{"n": 69, "m": 11, "n_uncovered": 0, "uncovered": []}
+{"n": 70, "m": 11, "n_uncovered": 0, "uncovered": []}
+{"n": 71, "m": 11, "n_uncovered": 0, "uncovered": []}
+{"n": 72, "m": 12, "n_uncovered": 0, "uncovered": []}
+{"n": 73, "m": 12, "n_uncovered": 0, "uncovered": []}
+{"n": 74, "m": 12, "n_uncovered": 0, "uncovered": []}
+{"n": 75, "m": 12, "n_uncovered": 0, "uncovered": []}
+{"n": 76, "m": 12, "n_uncovered": 0, "uncovered": []}
+{"n": 77, "m": 12, "n_uncovered": 0, "uncovered": []}
+{"n": 78, "m": 13, "n_uncovered": 1, "uncovered": [[11, 13, 11]]}
+{"n": 79, "m": 13, "n_uncovered": 1, "uncovered": [[11, 13, 11]]}
+{"n": 80, "m": 13, "n_uncovered": 0, "uncovered": []}
+{"n": 81, "m": 13, "n_uncovered": 0, "uncovered": []}
+{"n": 82, "m": 13, "n_uncovered": 0, "uncovered": []}
+{"n": 83, "m": 13, "n_uncovered": 0, "uncovered": []}
+{"n": 84, "m": 14, "n_uncovered": 0, "uncovered": []}
+{"n": 85, "m": 14, "n_uncovered": 0, "uncovered": []}
+{"n": 86, "m": 14, "n_uncovered": 0, "uncovered": []}
+{"n": 87, "m": 14, "n_uncovered": 0, "uncovered": []}
+{"n": 88, "m": 14, "n_uncovered": 0, "uncovered": []}
+{"n": 89, "m": 14, "n_uncovered": 0, "uncovered": []}
+{"n": 90, "m": 15, "n_uncovered": 0, "uncovered": []}
+{"n": 91, "m": 15, "n_uncovered": 0, "uncovered": []}
+{"n": 92, "m": 15, "n_uncovered": 0, "uncovered": []}
+{"n": 93, "m": 15, "n_uncovered": 0, "uncovered": []}
+{"n": 94, "m": 15, "n_uncovered": 0, "uncovered": []}
+{"n": 95, "m": 15, "n_uncovered": 0, "uncovered": []}
+{"n": 96, "m": 16, "n_uncovered": 0, "uncovered": []}
+{"n": 97, "m": 16, "n_uncovered": 0, "uncovered": []}
+{"n": 98, "m": 16, "n_uncovered": 0, "uncovered": []}
+{"n": 99, "m": 16, "n_uncovered": 0, "uncovered": []}
+{"n": 100, "m": 16, "n_uncovered": 0, "uncovered": []}
+{"n": 101, "m": 16, "n_uncovered": 0, "uncovered": []}
+{"n": 102, "m": 17, "n_uncovered": 0, "uncovered": []}
+{"n": 103, "m": 17, "n_uncovered": 0, "uncovered": []}
+{"n": 104, "m": 17, "n_uncovered": 0, "uncovered": []}
+{"n": 105, "m": 17, "n_uncovered": 0, "uncovered": []}
+{"n": 106, "m": 17, "n_uncovered": 0, "uncovered": []}
+{"n": 107, "m": 17, "n_uncovered": 0, "uncovered": []}
+{"n": 108, "m": 18, "n_uncovered": 0, "uncovered": []}
+{"n": 109, "m": 18, "n_uncovered": 0, "uncovered": []}
+{"n": 110, "m": 18, "n_uncovered": 0, "uncovered": []}
+{"n": 111, "m": 18, "n_uncovered": 0, "uncovered": []}
+{"n": 112, "m": 18, "n_uncovered": 0, "uncovered": []}
+{"n": 113, "m": 18, "n_uncovered": 0, "uncovered": []}
+{"n": 114, "m": 19, "n_uncovered": 0, "uncovered": []}
+{"n": 115, "m": 19, "n_uncovered": 0, "uncovered": []}
+{"n": 116, "m": 19, "n_uncovered": 0, "uncovered": []}
+{"n": 117, "m": 19, "n_uncovered": 0, "uncovered": []}
+{"n": 118, "m": 19, "n_uncovered": 0, "uncovered": []}
+{"n": 119, "m": 19, "n_uncovered": 0, "uncovered": []}
+{"n": 120, "m": 20, "n_uncovered": 0, "uncovered": []}
+{"n": 121, "m": 20, "n_uncovered": 0, "uncovered": []}
+{"n": 122, "m": 20, "n_uncovered": 0, "uncovered": []}
+{"n": 123, "m": 20, "n_uncovered": 0, "uncovered": []}
+{"n": 124, "m": 20, "n_uncovered": 0, "uncovered": []}
+{"n": 125, "m": 20, "n_uncovered": 0, "uncovered": []}
+{"n": 126, "m": 21, "n_uncovered": 0, "uncovered": []}
+{"n": 127, "m": 21, "n_uncovered": 0, "uncovered": []}
+{"n": 128, "m": 21, "n_uncovered": 0, "uncovered": []}
+{"n": 129, "m": 21, "n_uncovered": 0, "uncovered": []}
+{"n": 130, "m": 21, "n_uncovered": 0, "uncovered": []}
+{"n": 131, "m": 21, "n_uncovered": 0, "uncovered": []}
+{"n": 132, "m": 22, "n_uncovered": 0, "uncovered": []}
+{"n": 133, "m": 22, "n_uncovered": 0, "uncovered": []}
+{"n": 134, "m": 22, "n_uncovered": 0, "uncovered": []}
+{"n": 135, "m": 22, "n_uncovered": 0, "uncovered": []}
+{"n": 136, "m": 22, "n_uncovered": 0, "uncovered": []}
+{"n": 137, "m": 22, "n_uncovered": 0, "uncovered": []}
+{"n": 138, "m": 23, "n_uncovered": 0, "uncovered": []}
+{"n": 139, "m": 23, "n_uncovered": 0, "uncovered": []}
+{"n": 140, "m": 23, "n_uncovered": 0, "uncovered": []}
+{"n": 141, "m": 23, "n_uncovered": 0, "uncovered": []}
+{"n": 142, "m": 23, "n_uncovered": 0, "uncovered": []}
+{"n": 143, "m": 23, "n_uncovered": 0, "uncovered": []}
+{"n": 144, "m": 24, "n_uncovered": 0, "uncovered": []}
+{"n": 145, "m": 24, "n_uncovered": 0, "uncovered": []}
+{"n": 146, "m": 24, "n_uncovered": 0, "uncovered": []}
+{"n": 147, "m": 24, "n_uncovered": 0, "uncovered": []}
+{"n": 148, "m": 24, "n_uncovered": 0, "uncovered": []}
+{"n": 149, "m": 24, "n_uncovered": 0, "uncovered": []}
+{"n": 150, "m": 25, "n_uncovered": 0, "uncovered": []}
+{"n": 151, "m": 25, "n_uncovered": 0, "uncovered": []}
+{"n": 152, "m": 25, "n_uncovered": 0, "uncovered": []}
+{"n": 153, "m": 25, "n_uncovered": 0, "uncovered": []}
+{"n": 154, "m": 25, "n_uncovered": 0, "uncovered": []}
+{"n": 155, "m": 25, "n_uncovered": 0, "uncovered": []}
+{"n": 156, "m": 26, "n_uncovered": 0, "uncovered": []}
+{"n": 157, "m": 26, "n_uncovered": 0, "uncovered": []}
+{"n": 158, "m": 26, "n_uncovered": 0, "uncovered": []}
+{"n": 159, "m": 26, "n_uncovered": 0, "uncovered": []}
+{"n": 160, "m": 26, "n_uncovered": 0, "uncovered": []}
+{"n": 161, "m": 26, "n_uncovered": 0, "uncovered": []}
+{"n": 162, "m": 27, "n_uncovered": 0, "uncovered": []}
+{"n": 163, "m": 27, "n_uncovered": 0, "uncovered": []}
+{"n": 164, "m": 27, "n_uncovered": 0, "uncovered": []}
+{"n": 165, "m": 27, "n_uncovered": 0, "uncovered": []}
+{"n": 166, "m": 27, "n_uncovered": 0, "uncovered": []}
+{"n": 167, "m": 27, "n_uncovered": 0, "uncovered": []}
+{"n": 168, "m": 28, "n_uncovered": 0, "uncovered": []}
+{"n": 169, "m": 28, "n_uncovered": 0, "uncovered": []}
+{"n": 170, "m": 28, "n_uncovered": 0, "uncovered": []}
+{"n": 171, "m": 28, "n_uncovered": 0, "uncovered": []}
+{"n": 172, "m": 28, "n_uncovered": 0, "uncovered": []}
+{"n": 173, "m": 28, "n_uncovered": 0, "uncovered": []}
+{"n": 174, "m": 29, "n_uncovered": 0, "uncovered": []}
+{"n": 175, "m": 29, "n_uncovered": 0, "uncovered": []}
+{"n": 176, "m": 29, "n_uncovered": 0, "uncovered": []}
+{"n": 177, "m": 29, "n_uncovered": 0, "uncovered": []}
+{"n": 178, "m": 29, "n_uncovered": 0, "uncovered": []}
+{"n": 179, "m": 29, "n_uncovered": 0, "uncovered": []}
+{"n": 180, "m": 30, "n_uncovered": 0, "uncovered": []}
+{"n": 181, "m": 30, "n_uncovered": 0, "uncovered": []}
+{"n": 182, "m": 30, "n_uncovered": 0, "uncovered": []}
+{"n": 183, "m": 30, "n_uncovered": 0, "uncovered": []}
+{"n": 184, "m": 30, "n_uncovered": 0, "uncovered": []}
+{"n": 185, "m": 30, "n_uncovered": 0, "uncovered": []}
+{"n": 186, "m": 31, "n_uncovered": 0, "uncovered": []}
+{"n": 187, "m": 31, "n_uncovered": 0, "uncovered": []}
+{"n": 188, "m": 31, "n_uncovered": 0, "uncovered": []}
+{"n": 189, "m": 31, "n_uncovered": 0, "uncovered": []}
+{"n": 190, "m": 31, "n_uncovered": 0, "uncovered": []}
+{"n": 191, "m": 31, "n_uncovered": 0, "uncovered": []}
+{"n": 192, "m": 32, "n_uncovered": 0, "uncovered": []}
+{"n": 193, "m": 32, "n_uncovered": 0, "uncovered": []}
+{"n": 194, "m": 32, "n_uncovered": 0, "uncovered": []}
+{"n": 195, "m": 32, "n_uncovered": 0, "uncovered": []}
+{"n": 196, "m": 32, "n_uncovered": 0, "uncovered": []}
+{"n": 197, "m": 32, "n_uncovered": 0, "uncovered": []}
+{"n": 198, "m": 33, "n_uncovered": 0, "uncovered": []}
+{"n": 199, "m": 33, "n_uncovered": 0, "uncovered": []}
+{"n": 200, "m": 33, "n_uncovered": 0, "uncovered": []}
+{"n": 201, "m": 33, "n_uncovered": 0, "uncovered": []}
+{"n": 202, "m": 33, "n_uncovered": 0, "uncovered": []}
+{"n": 203, "m": 33, "n_uncovered": 0, "uncovered": []}
+{"n": 204, "m": 34, "n_uncovered": 0, "uncovered": []}
+{"n": 205, "m": 34, "n_uncovered": 0, "uncovered": []}
+{"n": 206, "m": 34, "n_uncovered": 0, "uncovered": []}
+{"n": 207, "m": 34, "n_uncovered": 0, "uncovered": []}
+{"n": 208, "m": 34, "n_uncovered": 0, "uncovered": []}
+{"n": 209, "m": 34, "n_uncovered": 0, "uncovered": []}
+{"n": 210, "m": 35, "n_uncovered": 0, "uncovered": []}
+{"n": 211, "m": 35, "n_uncovered": 0, "uncovered": []}
+{"n": 212, "m": 35, "n_uncovered": 0, "uncovered": []}
+{"n": 213, "m": 35, "n_uncovered": 0, "uncovered": []}
+{"n": 214, "m": 35, "n_uncovered": 0, "uncovered": []}
+{"n": 215, "m": 35, "n_uncovered": 0, "uncovered": []}
+{"n": 216, "m": 36, "n_uncovered": 0, "uncovered": []}
+{"n": 217, "m": 36, "n_uncovered": 0, "uncovered": []}
+{"n": 218, "m": 36, "n_uncovered": 0, "uncovered": []}
+{"n": 219, "m": 36, "n_uncovered": 0, "uncovered": []}
+{"n": 220, "m": 36, "n_uncovered": 0, "uncovered": []}
+{"n": 221, "m": 36, "n_uncovered": 0, "uncovered": []}
+{"n": 222, "m": 37, "n_uncovered": 0, "uncovered": []}
+{"n": 223, "m": 37, "n_uncovered": 0, "uncovered": []}
+{"n": 224, "m": 37, "n_uncovered": 0, "uncovered": []}
+{"n": 225, "m": 37, "n_uncovered": 0, "uncovered": []}
+{"n": 226, "m": 37, "n_uncovered": 0, "uncovered": []}
+{"n": 227, "m": 37, "n_uncovered": 0, "uncovered": []}
+{"n": 228, "m": 38, "n_uncovered": 0, "uncovered": []}
+{"n": 229, "m": 38, "n_uncovered": 0, "uncovered": []}
+{"n": 230, "m": 38, "n_uncovered": 0, "uncovered": []}
+{"n": 231, "m": 38, "n_uncovered": 0, "uncovered": []}
+{"n": 232, "m": 38, "n_uncovered": 0, "uncovered": []}
+{"n": 233, "m": 38, "n_uncovered": 0, "uncovered": []}
+{"n": 234, "m": 39, "n_uncovered": 0, "uncovered": []}
+{"n": 235, "m": 39, "n_uncovered": 0, "uncovered": []}
+{"n": 236, "m": 39, "n_uncovered": 0, "uncovered": []}
+{"n": 237, "m": 39, "n_uncovered": 0, "uncovered": []}
+{"n": 238, "m": 39, "n_uncovered": 0, "uncovered": []}
+{"n": 239, "m": 39, "n_uncovered": 0, "uncovered": []}
+{"n": 240, "m": 40, "n_uncovered": 0, "uncovered": []}
+{"n": 241, "m": 40, "n_uncovered": 0, "uncovered": []}
+{"n": 242, "m": 40, "n_uncovered": 0, "uncovered": []}
+{"n": 243, "m": 40, "n_uncovered": 0, "uncovered": []}
+{"n": 244, "m": 40, "n_uncovered": 0, "uncovered": []}
+{"n": 245, "m": 40, "n_uncovered": 0, "uncovered": []}
+{"n": 246, "m": 41, "n_uncovered": 0, "uncovered": []}
+{"n": 247, "m": 41, "n_uncovered": 0, "uncovered": []}
+{"n": 248, "m": 41, "n_uncovered": 0, "uncovered": []}
+{"n": 249, "m": 41, "n_uncovered": 0, "uncovered": []}
+{"n": 250, "m": 41, "n_uncovered": 0, "uncovered": []}
+{"n": 251, "m": 41, "n_uncovered": 0, "uncovered": []}
+{"n": 252, "m": 42, "n_uncovered": 0, "uncovered": []}
+{"n": 253, "m": 42, "n_uncovered": 0, "uncovered": []}
+{"n": 254, "m": 42, "n_uncovered": 0, "uncovered": []}
+{"n": 255, "m": 42, "n_uncovered": 0, "uncovered": []}
+{"n": 256, "m": 42, "n_uncovered": 0, "uncovered": []}
+{"n": 257, "m": 42, "n_uncovered": 0, "uncovered": []}
+{"n": 258, "m": 43, "n_uncovered": 0, "uncovered": []}
+{"n": 259, "m": 43, "n_uncovered": 0, "uncovered": []}
+{"n": 260, "m": 43, "n_uncovered": 0, "uncovered": []}
+{"n": 261, "m": 43, "n_uncovered": 0, "uncovered": []}
+{"n": 262, "m": 43, "n_uncovered": 0, "uncovered": []}
+{"n": 263, "m": 43, "n_uncovered": 0, "uncovered": []}
+{"n": 264, "m": 44, "n_uncovered": 0, "uncovered": []}
+{"n": 265, "m": 44, "n_uncovered": 0, "uncovered": []}
+{"n": 266, "m": 44, "n_uncovered": 0, "uncovered": []}
+{"n": 267, "m": 44, "n_uncovered": 0, "uncovered": []}
+{"n": 268, "m": 44, "n_uncovered": 0, "uncovered": []}
+{"n": 269, "m": 44, "n_uncovered": 0, "uncovered": []}
+{"n": 270, "m": 45, "n_uncovered": 0, "uncovered": []}
+{"n": 271, "m": 45, "n_uncovered": 0, "uncovered": []}
+{"n": 272, "m": 45, "n_uncovered": 0, "uncovered": []}
+{"n": 273, "m": 45, "n_uncovered": 0, "uncovered": []}
+{"n": 274, "m": 45, "n_uncovered": 0, "uncovered": []}
+{"n": 275, "m": 45, "n_uncovered": 0, "uncovered": []}
+{"n": 276, "m": 46, "n_uncovered": 0, "uncovered": []}
+{"n": 277, "m": 46, "n_uncovered": 0, "uncovered": []}
+{"n": 278, "m": 46, "n_uncovered": 0, "uncovered": []}
+{"n": 279, "m": 46, "n_uncovered": 0, "uncovered": []}
+{"n": 280, "m": 46, "n_uncovered": 0, "uncovered": []}
+{"n": 281, "m": 46, "n_uncovered": 0, "uncovered": []}
+{"n": 282, "m": 47, "n_uncovered": 0, "uncovered": []}
+{"n": 283, "m": 47, "n_uncovered": 0, "uncovered": []}
+{"n": 284, "m": 47, "n_uncovered": 0, "uncovered": []}
+{"n": 285, "m": 47, "n_uncovered": 0, "uncovered": []}
+{"n": 286, "m": 47, "n_uncovered": 0, "uncovered": []}
+{"n": 287, "m": 47, "n_uncovered": 0, "uncovered": []}
+{"n": 288, "m": 48, "n_uncovered": 0, "uncovered": []}
+{"n": 289, "m": 48, "n_uncovered": 0, "uncovered": []}
+{"n": 290, "m": 48, "n_uncovered": 0, "uncovered": []}
+{"n": 291, "m": 48, "n_uncovered": 0, "uncovered": []}
+{"n": 292, "m": 48, "n_uncovered": 0, "uncovered": []}
+{"n": 293, "m": 48, "n_uncovered": 0, "uncovered": []}
+{"n": 294, "m": 49, "n_uncovered": 0, "uncovered": []}
+{"n": 295, "m": 49, "n_uncovered": 0, "uncovered": []}
+{"n": 296, "m": 49, "n_uncovered": 0, "uncovered": []}
+{"n": 297, "m": 49, "n_uncovered": 0, "uncovered": []}
+{"n": 298, "m": 49, "n_uncovered": 0, "uncovered": []}
+{"n": 299, "m": 49, "n_uncovered": 0, "uncovered": []}
+{"n": 300, "m": 50, "n_uncovered": 0, "uncovered": []}

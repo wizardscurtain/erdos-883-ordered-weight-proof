@@ -9,7 +9,7 @@ This repository accompanies my computer-assisted argument for the all-\(n\) odd-
 
 The main source is [`paper/Manuscript.tex`](paper/Manuscript.tex), version 1.1, dated 12 October 2026 UTC. Its component files are in [`paper/`](paper/). Theorem 1.1 states the result; Sections 2–4 develop the method; Sections 5–6 and the appendices supply the analytic and finite reductions; Section 7 accounts for the historically established second question. See [`paper/README.md`](paper/README.md) for the reading order and build instructions.
 
-**Publication status:** the mathematical sources and the new checker are public. The historical certificate archive and the complete new per-\(n\) output still need to be uploaded. The typeset paper is also being added. Until the indispensable evidence is available, this repository is not a complete public submission package. No prize acceptance or complete Lean formalization is claimed.
+**Status: Mathematical evidence release supplied for review.** This version contains the mathematical sources and paired PDF, the new checker and complete per-\(n\) output, and a deliberately revised public historical evidence package. The derivative has its own manifest and explicit migration record; it is not presented as the unchanged historical archive. No prize acceptance or complete Lean formalization is claimed.
 
 ## The mathematical statement
 
@@ -41,6 +41,8 @@ Start with [`verification/README.md`](verification/README.md) and [`EVIDENCE_MAP
 
 The new finite replay does not replace the historical block certificates, small-parameter scans, SAT/LRAT certificates, or analytic interval bounds. Integrity checks, bounded mathematical tests, full proof review, and organizer verification are distinguished throughout.
 
+The public derivative is described in [`evidence/README.md`](evidence/README.md). Use [`evidence/REPRODUCTION.md`](evidence/REPRODUCTION.md) for setup and [`evidence/VALIDATION_PROTOCOL.md`](evidence/VALIDATION_PROTOCOL.md) for the separate execution modes. All 99 SAT CNF/witness/LRAT instances and the analytic interval calculation were freshly checked during derivative validation; all historical scanners and blocks were not freshly recomputed. The actual check scope is recorded in `provenance/PUBLIC_PACKAGE_VALIDATION_20261012.json`.
+
 ## Scope and authorship
 
 My proposed new contribution concerns question (i). Question (ii) is supplied by the historical theorem of Gábor N. Sárközy, *Complete tripartite subgraphs in the coprime graph of integers*, Discrete Mathematics 202 (1999), 227–238, DOI `10.1016/S0012-365X(98)00359-8`. Section 7 matches its density hypothesis and uniform quantifiers to the requested conclusion. I do not claim that historical discovery.
@@ -48,6 +50,8 @@ My proposed new contribution concerns question (i). Question (ii) is supplied by
 I selected and directed this research. AI systems substantially assisted the mathematical development, programming, checking, and writing. See [`AUTHORSHIP.md`](AUTHORSHIP.md) for contribution boundaries and [`provenance/REVISION_RECORD.md`](provenance/REVISION_RECORD.md) for corrections. No independent external human referee endorsement is asserted.
 
 This repository contains the mathematical contribution and its public verification material, not my private research-process account or unrelated work. No blanket license is assigned here to third-party material.
+
+[`evidence/PUBLIC_REVISION.md`](evidence/PUBLIC_REVISION.md) records the deliberate exclusion of experimental metadata, replacement of superseded draft exposition, unchanged certificate bytes, and revised public verification boundary. No claim is made that the original historical manifest passes over this reduced inventory.
 
 ## Prize submission
 
