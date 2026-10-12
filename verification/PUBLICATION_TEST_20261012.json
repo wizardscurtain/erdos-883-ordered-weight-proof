@@ -1,0 +1,29 @@
+{
+  "date_utc": "2026-10-12",
+  "status": "PASS",
+  "command": "python verification/test_integer_replay.py",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "source_git_blobs": {
+    "verification/integer_replay.py": "51087b1504eff0bf705a637115319aeac9bb205b",
+    "verification/test_integer_replay.py": "6314b1b549de60be419df9a02ecfbafb81297fb7"
+  },
+  "counts": {
+    "kappa_minimality_rows": 150000,
+    "threshold_comparisons_against_exact_oracle": 500000,
+    "wide_product_limb_checks": 10000,
+    "inclusive_equality_cases": 58471,
+    "marked_gap_configurations": 20200,
+    "reserve_deletion_configurations": 4108,
+    "worked_example_cycles": 1
+  },
+  "elapsed_seconds": 1.063970114,
+  "scope": "New execution of the bounded test suite only; not a fresh full 4000-30000 run, historical evidence replay, Lean proof, or organizer review.",
+  "supplied_full_per_n_output": {
+    "rows": 26001,
+    "successful_criteria": 25998,
+    "expected_exceptions": [4025, 4029, 4035],
+    "sha256": "78589bde77d8dd2c3447556ba97a4c67365f81a1799c792942ff03dc23f8dc84",
+    "check_this_preparation": "Byte integrity and recorded row consistency, not rerunning every n."
+  }
+}
