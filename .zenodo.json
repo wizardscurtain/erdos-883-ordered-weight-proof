@@ -1,0 +1,45 @@
+{
+  "title": "Ordered-weight certificates for odd cycles in dense coprime graphs: A computer-assisted argument for Erdős Problem 883(i)",
+  "version": "1.1",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "<p>For A ⊆ {1,…,n}, let G(A) join distinct integers precisely when they are coprime. We present a computer-assisted proof that |A| &gt; ⌊n/2⌋ + ⌊n/3⌋ − ⌊n/6⌋ forces every odd cycle of length at most ⌊n/3⌋ + 1, for every n (the odd-cycle assertion, part (i), of Erdős Problem 883). The central construction chooses an odd skeleton and fills its gaps with distinct common neighbours. An adjusted totient weight absorbs a finite inclusion–exclusion error into a product bound; ordering the interior skeleton by this weight bounds the number of deficient connector lists via a single cumulative count. Even connectors and arbitrary unused connectors provide complementary certificates. Explicit finite-prefix distribution bounds cover all n ≥ 10^8; smaller parameters are covered by arithmetic certificates and proof-producing (LRAT-checked) SAT computations. The certificate archive is an integral part of the argument.</p><p>This is an alternative argument; related work by Donald Della Pietra and Yicheng Pan is cited. Part (ii) is due to G. N. Sárközy (1999) and is not claimed. AI systems substantially assisted the mathematical development, programming, checking and writing; see AUTHORSHIP.md. No external peer review, prize acceptance, priority ruling, or complete Lean formalisation is claimed.</p>",
+  "creators": [
+    {
+      "name": "Jentges, Cecil",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0004-9986-8551"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "Erdős problems",
+    "Erdős Problem 883",
+    "coprime graphs",
+    "odd cycles",
+    "ordered Hall condition",
+    "totient distribution",
+    "computer-assisted proof",
+    "SAT certificates"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://www.erdosproblems.com/883",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://github.com/wizardscurtain/erdos-883-ordered-weight-proof",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "10.1016/S0012-365X(98)00359-8",
+      "relation": "references",
+      "resource_type": "publication-article"
+    }
+  ],
+  "notes": "Mathematical evidence release for review. Cite the exact release/commit together with the manuscript version. Companion submission: Justin Sun Prize awards PR #5021 (https://github.com/TheJustinSunPrize/awards/pull/5021), pending organizer review. Licensing: the manuscript and text are CC-BY-4.0; the code is Apache-2.0 (see LICENSE and LICENSE-CC-BY-4.0 in the repository)."
+}

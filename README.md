@@ -49,7 +49,7 @@ My proposed new contribution concerns question (i). Question (ii) is supplied by
 
 I selected and directed this research. AI systems substantially assisted the mathematical development, programming, checking, and writing. See [`AUTHORSHIP.md`](AUTHORSHIP.md) for contribution boundaries and [`provenance/REVISION_RECORD.md`](provenance/REVISION_RECORD.md) for corrections. No independent external human referee endorsement is asserted.
 
-This repository contains the mathematical contribution and its public verification material, not my private research-process account or unrelated work. No blanket license is assigned here to third-party material.
+This repository contains the mathematical contribution and its public verification material, not my private research-process account or unrelated work.
 
 [`evidence/PUBLIC_REVISION.md`](evidence/PUBLIC_REVISION.md) records the deliberate exclusion of experimental metadata, replacement of superseded draft exposition, unchanged certificate bytes, and revised public verification boundary. No claim is made that the original historical manifest passes over this reduced inventory.
 
@@ -68,3 +68,12 @@ The evidence guide and short exposition describe the earlier checkpoint `27fcb6e
 This is the external evidence repository. A mathematics-only submission belongs in a fork of [`TheJustinSunPrize/awards`](https://github.com/TheJustinSunPrize/awards), with a narrowly scoped catalog change and links to the completed public evidence. See the official [contribution instructions](https://github.com/TheJustinSunPrize/awards/blob/main/CONTRIBUTING.md) and [PR template](https://github.com/TheJustinSunPrize/awards/blob/main/.github/PULL_REQUEST_TEMPLATE.md). The mathematical and Lean contributions are separate; this repository does not register a completed Lean proof.
 
 The mathematics-only submission is already filed as [awards PR #5021](https://github.com/TheJustinSunPrize/awards/pull/5021). It is pending organizer review; the companion documents are not a duplicate prize submission or an acceptance claim.
+
+## License
+
+This repository uses two licenses:
+
+- **Paper and text** (`paper/`, the companion PDFs, and the documentation) are licensed under the [Creative Commons Attribution 4.0 International License (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/). See `LICENSE-CC-BY-4.0`.
+- **Code** (the scripts, verification tools, and certificate generators) is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). See `LICENSE`.
+
+Copyright © 2026 Cecil Jentges.
