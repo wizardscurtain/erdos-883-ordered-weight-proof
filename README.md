@@ -1,7 +1,11 @@
 # Ordered-weight certificates for odd cycles in dense coprime graphs
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23482077.svg)](https://doi.org/10.5281/zenodo.23482077)
+
 **Cecil Jentges**  
 Independent researcher · Mathematical contribution to **Erdős Problem 883 / JSP-000734**
+
+**Cite this work.** Concept DOI (all versions): [10.5281/zenodo.23482077](https://doi.org/10.5281/zenodo.23482077). Version DOI (v1.1): [10.5281/zenodo.23482078](https://doi.org/10.5281/zenodo.23482078).
 
 This repository accompanies my computer-assisted argument for the all-\(n\) odd-cycle assertion in Erdős Problem 883. The approach combines adjusted arithmetic weights, an ordered connector construction, and finite-to-infinite certificate coverage.
 
