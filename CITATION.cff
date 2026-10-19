@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use or review this work, please cite it as below, together with the exact release or commit used."
+type: software
+title: "Ordered-weight certificates for odd cycles in dense coprime graphs: A computer-assisted argument for Erdős Problem 883(i)"
+version: "1.1"
+date-released: "2026-10-19"
+license:
+  - CC-BY-4.0
+  - Apache-2.0
+repository-code: "https://github.com/wizardscurtain/erdos-883-ordered-weight-proof"
+url: "https://github.com/wizardscurtain/erdos-883-ordered-weight-proof"
+abstract: >-
+  A computer-assisted proof that if A is a subset of {1,...,n} with
+  |A| > floor(n/2) + floor(n/3) - floor(n/6), then the coprime graph on A
+  contains a cycle of every odd length L with 3 <= L <= floor(n/3) + 1, for
+  every n (Erdős Problem 883, part (i)). Uses adjusted totient weights, an
+  ordered Hall/connector argument, analytic bounds for n >= 10^8, and
+  arithmetic and LRAT-checked SAT certificates below that.
+authors:
+  - given-names: Cecil
+    family-names: Jentges
+    affiliation: "Independent researcher"
+    orcid: "https://orcid.org/0009-0004-9986-8551"
+keywords:
+  - "Erdős Problem 883"
+  - "coprime graphs"
+  - "odd cycles"
+  - "computer-assisted proof"
+# identifiers:            # add after Zenodo mints the DOI
+#   - type: doi
+#     value: "<ZENODO_DOI>"
